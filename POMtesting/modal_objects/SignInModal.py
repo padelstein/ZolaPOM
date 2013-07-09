@@ -26,7 +26,6 @@ class SignInModal:
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _sign_up_button)
         
     def sign_in(self, _username, _password):
-        
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_name('username'), _username)
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_name('password'), _password)
 

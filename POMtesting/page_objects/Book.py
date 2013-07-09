@@ -24,8 +24,6 @@ class Book:
         
     def click_buy(self):
         self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('div/div/span/a').click()
-#        _buy = self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('div/div/span/a')
-#        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _buy)
 
     
     

@@ -41,8 +41,6 @@ class Home:
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'best-sellers')))
         _bestseller = self._webd_wrap._driver.find_element_by_id('best-sellers').find_element_by_xpath('ul/li/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _bestseller)
-        #_topseller_button.click()
-        #self._webd_wrap._driver.find_element_by_xpath("/html/body/div[4]")
         
     def click_my_zola(self):
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
