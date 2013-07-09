@@ -1,0 +1,57 @@
+*** Settings ***
+Test Setup        WebDriverWrapper.Open Firefox
+Library           ../../POMtesting/page_objects/WebDriverWrapper.py
+Library           ../../POMtesting/page_objects/Home.py
+Library           ../../POMtesting/page_objects/Bestsellers.py
+Library           ../../POMtesting/page_objects/MyZola.py
+Library           ../../POMtesting/page_objects/SignUp.py
+Library           ../../POMtesting/page_objects/AddCard.py
+Library           ../../POMtesting/modal_objects/BookModal.py
+Library           ../../POMtesting/modal_objects/SignInModal.py
+Library           ../../POMtesting/modal_objects/RecommendModal.py
+
+*** Test Cases ***
+No Account
+    Home.Click Bestsellers
+    Bestsellers.Click First Book
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Recommend
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    BookModal.Click Recommend
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
+    Bestsellers.Click My Zola
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
+
+Signed In
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
+    Home.Click Bestsellers
+    Bestsellers.Click First Book
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Recommend
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
+    BestSellers.Click My Zola
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
+
+Not Signed In
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Bestsellers
+    Bestsellers.Click First Book
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Recommend
+    SignInModal.Sign In    ${EMAIL}    password
+    BookModal.Click Recommend
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
+    BestSellers.Click My Zola
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
