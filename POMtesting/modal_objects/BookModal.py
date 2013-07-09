@@ -24,8 +24,8 @@ class BookModal:
         
     def click_recommend(self):
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
-        _recommend_button = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/div/section[2]/div/div/ul/li[3]/a')
-        self._webd_wrap._driver.execute_script('$(arguments[0]).click()', _recommend_button)
+        _recommend_button = self._webd_wrap._driver.find_element_by_class_name("l-230px").find_element_by_xpath("div/div/ul/li[3]/a")
+        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _recommend_button)
         
     def click_full_profile(self):
         _full_profile = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')

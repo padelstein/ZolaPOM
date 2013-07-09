@@ -1,5 +1,9 @@
 *** Test Cases ***
 No Account
+    Home.Click Bestsellers
+    Bestsellers.Click First Book
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Full Profile
 
 Signed In
 

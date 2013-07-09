@@ -18,7 +18,6 @@ No Account
     BookModal.Click Recommend
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
-    BookModal.Click Recommend
     RecommendModal.Submit Recommend
     RecommendModal.Close Modal
     Bestsellers.Click My Zola
@@ -50,7 +49,6 @@ Not Signed In
     ${BOOK_TITLE}=    BookModal.Get Book Title
     BookModal.Click Recommend
     SignInModal.Sign In    ${EMAIL}    password
-    BookModal.Click Recommend
     RecommendModal.Submit Recommend
     RecommendModal.Close Modal
     BestSellers.Click My Zola
