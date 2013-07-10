@@ -1,3 +1,7 @@
+*** Settings ***
+Test Setup        WebDriverWrapper.Open Firefox
+Test Teardown     WebDriverWrapper.Close the Browser
+
 *** Test Cases ***
 No Account
 
