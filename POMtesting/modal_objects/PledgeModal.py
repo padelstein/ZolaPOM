@@ -25,6 +25,13 @@ class pledge_modal():
         self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "l-570px")))
         return self
     
+    def click_signup_button(self):
+        signup_button = self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_xpath('section[2]/div/a')
+        hover = ActionChains(self._webd_wrap._driver).move_to_element(signup_button)
+        hover.perform()
+        self._webd_wrap._driver.execute_script('(arguments[0]).click()', signup_button)
+        return self
+    
     
     def initial_pledge(self):
         pledge_button = self._driver.find_element_by_class_name("l-710px").find_element_by_xpath("section/p/a/img")
