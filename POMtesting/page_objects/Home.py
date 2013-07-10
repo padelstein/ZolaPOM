@@ -10,6 +10,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+import time
 from robot.libraries.BuiltIn import BuiltIn
 
 class Home:
@@ -28,6 +29,12 @@ class Home:
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
         
+    def hover_over_connect_dropdown(self):
+        ''' hovers the mouse over the connect drop down menu '''
+        _element = self._webd_wrap._driver.find_element_by_id("h-connect").find_element_by_xpath("h2/a")
+        _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
+        _hov.perform()
+        
     def click_bestsellers(self):
         self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_xpath('div/nav/ul/li[3]/a').click()    
         
@@ -43,6 +50,7 @@ class Home:
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _bestseller)
         
     def click_my_zola(self):
+        time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
         
     def click_sign_in(self):

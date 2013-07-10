@@ -2,22 +2,18 @@
 Test Setup        WebDriverWrapper.Open Firefox
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
-Library           ../../POMtesting/page_objects/ACPList.py
 Library           ../../POMtesting/page_objects/SignUp.py
-Library           ../../POMtesting/page_objects/MyZola.py
-Library           ../../POMtesting/modal_objects/ACPModal.py
+Library           ../../POMtesting/page_objects/ACPList.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
+Library           ../../POMtesting/page_objects/MyZola.py
 
 *** Test Cases ***
 No Account
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
-    ACPLIst.Click First ACP
-    ${NAME}=    ACPModal.Get Name
-    ACPModal.Click Follow
+    ACPList.Click Follow First ACP
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    ACPModal.Close Modal
     ACPList.Click My Zola
     MyZola.First Activity Should be Follow
 
@@ -27,10 +23,7 @@ Signed In
     ${EMAIL}=    SignUp.Submit New Member Info
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
-    ACPList.Click First ACP
-    ${NAME}=    ACPModal.Get Name
-    ACPModal.Click Follow
-    ACPModal.Close Modal
+    ACPList.Click Follow First ACP
     ACPList.Click My Zola
     MyZola.First Activity Should be Follow
 
@@ -41,10 +34,7 @@ Not Signed In
     Home.Click Sign Out
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
-    ACPList.Click First ACP
-    ${NAME}=    ACPModal.Get Name
-    ACPModal.Click Follow
+    ACPList.Click Follow First ACP
     SignInModal.Sign In    ${EMAIL}    password
-    ACPModal.Close Modal
     ACPList.Click My Zola
     MyZola.First Activity Should be Follow

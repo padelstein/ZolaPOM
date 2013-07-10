@@ -24,8 +24,6 @@ class Category:
 
     def click_first_book(self):
         ''' clicks first book in the main list '''
-        #_web_driver = BuiltIn().get_library_instance('WebDriver')._driver
-        
         self._webd_wrap._driver.find_element_by_class_name("l-main-primary").find_element_by_xpath("section[3]/div/a/img").click()
         
     def page_title_should_be(self, _correct_title):
