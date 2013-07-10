@@ -12,6 +12,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from robot.libraries.BuiltIn import BuiltIn
 
+import time
+
 class BookModal:
 
     def __init__(self):
@@ -34,6 +36,7 @@ class BookModal:
     def get_book_title(self):
         self._webd_wrap.wait.until(EC.title_contains("Zola"))
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
+        time.sleep(1)
         _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
         print _elt.text
         return _elt.text

@@ -28,12 +28,12 @@ class RecommendModal():
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', _recommend_email_form.find_elements_by_class_name('textboxlist-bit-editable-input')[0], '1@zolabooks.com')
     
     def click_checkbox(self):
-        checkbox = self._driver.find_element_by_id('uniform-share-with-followers').find_element_by_xpath('span/input')
+        checkbox = self._webd_wrap._driver.find_element_by_id('uniform-share-with-followers').find_element_by_xpath('span/input')
         self._webd_wrap._driver.execute_script("$(arguments[0]).click()", checkbox)
             
     def enter_message(self):
         _recommend_email_form = self._webd_wrap._driver.find_element_by_id('recommend-email-form')
-        self._driver.execute_script('$(arguments[0]).val(arguments[1])', _recommend_email_form.find_elements_by_name('message')[0], 'test')
+        self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', _recommend_email_form.find_elements_by_name('message')[0], 'test')
         
     def submit(self):
         send = self._webd_wrap._driver.find_element_by_id('recommend-modal').find_element_by_id("recommend-email-form").find_element_by_xpath("footer/input")

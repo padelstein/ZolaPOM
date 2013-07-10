@@ -1,9 +1,7 @@
 *** Settings ***
 Documentation     This suite tests going to each category page via the dropdown menu from the homepage.
-Suite Setup       WebDriverWrapper.Open Firefox
-Suite Teardown    WebDriverWrapper.Close the Browser
-Test Setup        WebDriverWrapper.Go to Zola
-Test Teardown
+Test Setup        WebDriverWrapper.Open Firefox
+Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
 Library           ../../POMtesting/page_objects/Category.py
@@ -26,7 +24,7 @@ Business & Economics
 
 Children
 
-Classics & \ Poetry
+Classics & Poetry
     Home.Hover Over Category Dropdown
     Home.Click on Link    Classics & Poetry
     Category.Page Title Should Be    Zola Books | ebook | Classics & Poetry
