@@ -25,13 +25,17 @@ class SignInModal:
         _sign_up_button = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/section[2]/div/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _sign_up_button)
         
-    def sign_in(self, _username='davidtennant@zolabooks.com', _password='kingkong'):
-        _sign_in_modal = self._webd_wrap.find_element_by_id('sign-in-modal')
-         
-        self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver._sign_in_modal.find_element_by_name('username')[0], _username)
-        self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver._sign_in_modal.find_element_by_name('password')[0], _password)
+    def sign_in(self, _username='davidtennant@zolabooks.com', _password='kingkong'): 
+
+        self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_name('username'), _username)
+
+        self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_name('password'), _password)
+
 
         _send = self._webd_wrap._driver.find_element_by_id("login_modal").find_element_by_xpath('div[3]/p/input')
+
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _send)
+
         time.sleep(2) # waits for the login to register before moving on
+
         
