@@ -11,6 +11,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from robot.libraries.BuiltIn import BuiltIn
 
+import time
+
 class Bestsellers:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
@@ -31,4 +33,5 @@ class Bestsellers:
         return _book_title.text
         
     def click_my_zola(self):
+        time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()

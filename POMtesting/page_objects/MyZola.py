@@ -30,3 +30,9 @@ class MyZola:
         actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
         if actual != _book_title:
             raise AssertionError("Recommended book should have been %s but was %s" % (_book_title, actual))
+        
+    def first_activity_should_be_follow(self):
+        ''' raises AssertionError if first activity is not a follow '''
+        actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        if not "following" in actual:
+            raise AssertionError("First activity should have been a follow")
