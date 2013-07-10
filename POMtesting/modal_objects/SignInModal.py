@@ -41,5 +41,5 @@ class SignInModal:
         sign_in_modal = self._driver.find_element_by_id('sign-in-modal')
         self._driver.execute_script('$(arguments[0]).val(arguments[1])', sign_in_modal.find_elements_by_name('password')[0], 'kingkong')
          
-        send = self._driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/form/div[3]/p/input")
+        send = self._webd_wrap._driver.find_element_by_id("login_modal").find_element_by_xpath('div[3]/p/input')
         self._driver.execute_script("(arguments[0]).click()", send)
