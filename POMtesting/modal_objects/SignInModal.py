@@ -33,7 +33,5 @@ class SignInModal:
         _send = self._webd_wrap._driver.find_element_by_id("login_modal").find_element_by_xpath('div[3]/p/input')
 
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _send)
+        time.sleep(3) # waits for the login to register before moving on
 
-        time.sleep(2) # waits for the login to register before moving on
-
-        

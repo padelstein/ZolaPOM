@@ -27,9 +27,14 @@ class Bestsellers:
     def click_buy_first_book(self):
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/div/div[1]/a').click()
         
+    def rate_first_book(self):
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]').find_element_by_class_name('star-rating-control').find_element_by_xpath('div[4]').click()
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'star-rating-control')))
+        
     def get_first_book_title(self):
+        time.sleep(2)
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'l-main-primary')))
-        _book_title = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/a[1]')
+        _book_title = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/div/a')
         return _book_title.text
         
     def click_my_zola(self):
