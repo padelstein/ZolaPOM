@@ -11,8 +11,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from robot.libraries.BuiltIn import BuiltIn
 
-class bookseller_modal():
-    def __init__(self, webd_wrap):
+class BooksellerModal:
+    
+    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
+    
+    def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
     
     def detect_modal_element(self):
@@ -25,6 +28,6 @@ class bookseller_modal():
         return self
     
     def click_full_profile(self):
-        full_profile = self._driver.find_element_by_class_name('name-header').find_element_by_xpath('div/a')
+        full_profile = self._webd_wrap._driver.find_element_by_class_name('name-header').find_element_by_xpath('div/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", full_profile)
         
