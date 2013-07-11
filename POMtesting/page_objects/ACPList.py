@@ -14,14 +14,18 @@ import time
 from robot.libraries.BuiltIn import BuiltIn
 
 class ACPList:
-    '''
-    classdocs
-    '''
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
+        
+    def click_my_zola(self):
+        time.sleep(2)
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
+        
+    ########################################################################
+    ########################################################################
         
     def click_first_acp(self):
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/section[1]/div/div/div[1]/h5/a').click()
@@ -29,9 +33,8 @@ class ACPList:
     def click_follow_first_acp(self):
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/section[1]/div/div/div[2]/a').click()
         
-    def click_my_zola(self):
-        time.sleep(2)
-        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
+    ########################################################################
+    ########################################################################
         
     def confirm_bookseller_page(self):
         bookstore_button = self._webd_wrap._driver.find_element_by_class_name("author").find_element_by_xpath("a/div/img")

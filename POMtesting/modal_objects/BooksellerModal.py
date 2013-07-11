@@ -12,8 +12,15 @@ from selenium.webdriver.common.action_chains import ActionChains
 from robot.libraries.BuiltIn import BuiltIn
 
 class bookseller_modal():
+    
     def __init__(self, webd_wrap):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
+        
+    def close_modal(self):
+        _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
+        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
+        
+    ########################################################################    
     
     def detect_modal_element(self):
         self._webd_wrap._driver.find_element_by_xpath("/html/body/div[4]/div/div/div/div/div/div/div/section[2]/div/section[2]/div/div[2]/div/div/a")

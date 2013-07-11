@@ -14,14 +14,26 @@ import time
 from robot.libraries.BuiltIn import BuiltIn
 
 class Home:
-    '''
-    The home page extension of the Base page model
-    '''
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
+        
+    def click_my_zola(self):
+        time.sleep(2)
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
+        
+    def click_sign_in(self):
+        ''' clicks the sign in button '''
+        self._webd_wrap._driver.find_element_by_link_text("Register / Sign In").click()
+        
+    def click_sign_out(self):
+        ''' clicks the sign out link '''
+        self._webd_wrap._driver.find_element_by_id('logout-link').click()
+        
+    ########################################################################
+    ########################################################################
 
     def hover_over_category_dropdown(self):
         ''' hovers the mouse over the category drop down menu '''
@@ -36,6 +48,7 @@ class Home:
         _hov.perform()
         
     def click_bestsellers(self):
+        ''' clicks the link to the bestsellers list '''
         self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_xpath('div/nav/ul/li[3]/a').click()    
         
     def click_on_link(self, _link_text):
@@ -49,14 +62,4 @@ class Home:
         _bestseller = self._webd_wrap._driver.find_element_by_id('best-sellers').find_element_by_xpath('ul/li/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _bestseller)
         
-    def click_my_zola(self):
-        time.sleep(2)
-        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
-        
-    def click_sign_in(self):
-        ''' clicks the sign in button '''
-        self._webd_wrap._driver.find_element_by_link_text("Register / Sign In").click()
-        
-    def click_sign_out(self):
-        ''' clicks the sign out link '''
-        self._webd_wrap._driver.find_element_by_id('logout-link').click()
+    

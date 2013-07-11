@@ -19,6 +19,12 @@ class BookModal:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def close_modal(self):
+        _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
+        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
+    
+    ########################################################################
+        
     def rate(self):
         self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]').find_element_by_class_name('ui-rating-bar-section-large').find_element_by_xpath('span/div[3]/a').click()    
         
@@ -36,6 +42,8 @@ class BookModal:
     def click_full_profile(self):
         _full_profile = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _full_profile)
+    
+    ########################################################################
         
     def get_book_title(self):
         self._webd_wrap.wait.until(EC.title_contains("Zola"))
@@ -45,6 +53,4 @@ class BookModal:
         print _elt.text
         return _elt.text
     
-    def close_modal(self):
-        _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
-        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
+    

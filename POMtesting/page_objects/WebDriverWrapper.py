@@ -11,9 +11,6 @@ from selenium.webdriver.support import expected_conditions as EC # available sin
 from selenium.webdriver.common.action_chains import ActionChains
 
 class WebDriverWrapper:
-    '''
-    classdocs
-    '''
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
