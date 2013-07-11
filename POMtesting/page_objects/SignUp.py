@@ -15,9 +15,14 @@ from robot.libraries.BuiltIn import BuiltIn
 import random
 
 class SignUp:
+    
+    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
+        
+    ########################################################################
+    ########################################################################
         
     def submit_new_member_info(self):
         

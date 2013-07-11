@@ -12,6 +12,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from robot.libraries.BuiltIn import BuiltIn
 
+import time
+
 class MyZola:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
@@ -19,26 +21,61 @@ class MyZola:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def _confirm_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _url = self._webd_wrap._driver.current_url
+        if not _url.startswith('https://zolaqc.com/profile'):
+            raise AssertionError("Not on a profile page.")
+        
+    def click_my_zola(self):
+        self._confirm_page()
+        
+        time.sleep(2)
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
+        
+    def click_sign_in(self):
+        ''' clicks the sign in button '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_link_text("Register / Sign In").click()
+        
+    def click_sign_out(self):
+        ''' clicks the sign out link '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_id('logout-link').click()
+        
+    ########################################################################
+    ########################################################################
+        
     def first_activity_should_be_purchased_book(self, _book_title):
         ''' raises AssertionError if page title is not arg1 '''
+        self._confirm_page()
+        
         actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
         if actual != _book_title:
             raise AssertionError("Purchased book should have been %s but was %s" % (_book_title, actual))
     
     def first_activity_should_be_recommended_book(self, _book_title):
         ''' raises AssertionError if page title is not arg1 '''
+        self._confirm_page()
+        
         actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
         if actual != _book_title:
             raise AssertionError("Recommended book should have been %s but was %s" % (_book_title, actual))
         
     def first_activity_should_be_follow(self):
         ''' raises AssertionError if first activity is not a follow '''
+        self._confirm_page()
+        
         actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
         if not "following" in actual:
             raise AssertionError("First activity should have been a follow")
         
     def first_activity_should_be_rated_book(self, _book_title):
         ''' raises AssertionError if first activity is not a rate the proper book '''
+        self._confirm_page()
+        
         _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
         _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
         if not "rated" in _description or _book_title != _actual_book_title:

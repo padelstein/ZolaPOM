@@ -13,17 +13,25 @@ from selenium.webdriver.common.action_chains import ActionChains
 from robot.libraries.BuiltIn import BuiltIn
 
 class Category:
-    '''
-    classdocs
-    '''
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
+        
+    def _confirm_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _url = self._webd_wrap._driver.current_url
+        if not _url.startswith('https://zolaqc.com/category'):
+            raise AssertionError("Not on a Category page.")
+        
+    ########################################################################
+    ########################################################################
 
     def click_first_book(self):
         ''' clicks first book in the main list '''
+        self._confirm_page()
+        
         self._webd_wrap._driver.find_element_by_class_name("l-main-primary").find_element_by_xpath("section[3]/div/a/img").click()
         
     def page_title_should_be(self, _correct_title):

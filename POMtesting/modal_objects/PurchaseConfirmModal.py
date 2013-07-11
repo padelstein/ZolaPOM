@@ -19,6 +19,12 @@ class PurchaseConfirmModal:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def close_modal(self):
+        _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
+        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
+        
+    ########################################################################
+        
     def click_receive_emails(self):
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]")))
         

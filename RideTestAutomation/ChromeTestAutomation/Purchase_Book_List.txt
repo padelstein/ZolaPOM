@@ -1,24 +1,22 @@
 *** Settings ***
-Documentation     This suite tests purchasing a book from a modal under various conditions.
-Suite Setup
-Suite Teardown
-Test Setup        WebDriverWrapper.Open Firefox
+Test Setup        WebDriverWrapper.Open Chrome
 Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
+Library           ../../POMtesting/page_objects/Bestsellers.py
 Library           ../../POMtesting/page_objects/SignUp.py
 Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/page_objects/MyZola.py
 Library           ../../POMtesting/modal_objects/BookModal.py
-Library           ../../POMtesting/modal_objects/PurchaseConfirmModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
+Library           ../../POMtesting/modal_objects/PurchaseConfirmModal.py
 
 *** Test Cases ***
 No Account
-    Home.Click First Bestseller
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Click Buy
-    SignInModal.Click Signup
+    Home.Click Bestsellers
+    ${BOOK_TITLE}=    BestSellers.Get First Book Title
+    BestSellers.Click Buy First Book
+    SignInModal.Click Sign Up
     SignUp.Submit New Member Info
     AddCard.Submit New CC Info
     PurchaseConfirmModal.Click Receive Emails
@@ -31,9 +29,9 @@ Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click First Bestseller
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Click Buy
+    Home.Click Bestsellers
+    ${BOOK_TITLE}=    BestSellers.Get First Book Title
+    BestSellers.Click Buy First Book
     AddCard.Submit New CC Info
     PurchaseConfirmModal.Click Receive Emails
     PurchaseConfirmModal.Click Buy
@@ -46,9 +44,9 @@ Not Signed In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
     Home.Click Sign Out
-    Home.Click First Bestseller
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Click Buy
+    Home.Click Bestsellers
+    ${BOOK_TITLE}=    BestSellers.Get First Book Title
+    BestSellers.Click Buy First Book
     SignInModal.Sign In    ${EMAIL}    password
     AddCard.Submit New CC Info
     PurchaseConfirmModal.Click Receive Emails
@@ -56,5 +54,3 @@ Not Signed In
     PurchaseConfirmModal.Click Done
     Home.Click My Zola
     MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
-
-*** Keywords ***

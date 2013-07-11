@@ -1,5 +1,5 @@
 *** Settings ***
-Test Setup        WebDriverWrapper.Open Firefox
+Test Setup        WebDriverWrapper.Open Chrome
 Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
@@ -23,27 +23,5 @@ No Account
     MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
 
 Signed In
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    Sign Up.Submit New Member Info
-    Home.Click Bestsellers
-    Bestsellers.Click First Book
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Click Full Profile
-    Book.Rate
-    Book.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
 
 Not Signed In
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Sign Out
-    Home.Click Bestsellers
-    Bestsellers.Click First Book
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Click Full Profile
-    Book.Rate
-    SignInModal.Sign In    ${EMAIL}    password
-    Book.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}

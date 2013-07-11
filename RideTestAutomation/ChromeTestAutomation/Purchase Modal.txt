@@ -2,7 +2,7 @@
 Documentation     This suite tests purchasing a book from a modal under various conditions.
 Suite Setup
 Suite Teardown
-Test Setup        WebDriverWrapper.Open Firefox
+Test Setup        WebDriverWrapper.Open Chrome
 Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
