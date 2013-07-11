@@ -1,38 +1,44 @@
 *** Settings ***
-Test Setup        WebDriverWrapper.Open Firefox
+Test Setup        WebDriverWrapper.Open Chrome
 Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
 Library           ../../POMtesting/page_objects/Bestsellers.py
-Library           ../../POMtesting/page_objects/Book.py
-Library           ../../POMtesting/page_objects/SignUp.py
 Library           ../../POMtesting/page_objects/MyZola.py
+Library           ../../POMtesting/page_objects/SignUp.py
+Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/modal_objects/BookModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
+Library           ../../POMtesting/modal_objects/RecommendModal.py
 
 *** Test Cases ***
 No Account
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
+    BookModal.Click Recommend
     SignInModal.Click Sign Up
-    SignUp.Submit New Member Info
-    BookModal.Close Modal
-    BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    ${EMAIL}=    SignUp.Submit New Member Info
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
+    Bestsellers.Click My Zola
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
-    BookModal.Close Modal
+    BookModal.Click Recommend
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
     BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Not Signed In
     Home.Click Sign In
@@ -42,8 +48,9 @@ Not Signed In
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
+    BookModal.Click Recommend
     SignInModal.Sign In    ${EMAIL}    password
-    BookModal.Close Modal
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
     BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}

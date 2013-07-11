@@ -19,6 +19,9 @@ class BookModal:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def rate(self):
+        self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]').find_element_by_class_name('ui-rating-bar-section-large').find_element_by_xpath('span/div[3]/a').click()    
+        
     def click_buy(self):
         _purchase_button = self._webd_wrap._driver.find_element_by_class_name('l-230px').find_element_by_xpath('div/div/span/a')
         self._webd_wrap._driver.execute_script('$(arguments[0]).click()', _purchase_button)
@@ -26,6 +29,7 @@ class BookModal:
         
     def click_recommend(self):
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
+        
         _recommend_button = self._webd_wrap._driver.find_element_by_class_name("l-230px").find_element_by_xpath("div/div/ul/li[3]/a")
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _recommend_button)
         
@@ -40,3 +44,7 @@ class BookModal:
         _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
         print _elt.text
         return _elt.text
+    
+    def close_modal(self):
+        _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
+        self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)

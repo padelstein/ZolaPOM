@@ -15,9 +15,6 @@ from robot.libraries.BuiltIn import BuiltIn
 import time
 
 class Book:
-    '''
-    classdocs
-    '''
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
@@ -25,7 +22,7 @@ class Book:
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
     def rate(self):
-        self._webd_wrap._driver.find_element_by_class_name('ui-rating-bar').find_element_by_xpath('a/div/form/span/div[3]').click()
+        self._webd_wrap._driver.find_element_by_class_name('ui-rating-bar-section-large').find_element_by_xpath('span/div[3]/a').click()
         
     def click_buy(self):
         self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('div/div/span/a').click()
@@ -37,6 +34,8 @@ class Book:
         self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('div/div/ul/li[3]/a').click()
         
     def click_my_zola(self):
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ui-rating-bar-section-large')))
+        
         time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
 

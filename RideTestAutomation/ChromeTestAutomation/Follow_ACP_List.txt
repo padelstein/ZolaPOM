@@ -1,41 +1,41 @@
 *** Settings ***
-Test Setup        WebDriverWrapper.Open Firefox
+Test Setup        WebDriverWrapper.Open Chrome
 Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/Home.py
-Library           ../../POMtesting/page_objects/Bestsellers.py
 Library           ../../POMtesting/page_objects/SignUp.py
+Library           ../../POMtesting/page_objects/ACPList.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/page_objects/MyZola.py
 
 *** Test Cases ***
 No Account
-    Home.Click Bestsellers
-    ${BOOK_TITLE}=    Bestsellers.Get First Book Title
-    Bestsellers.Rate First Book
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Click Follow First ACP
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    Bestsellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    ACPList.Click My Zola
+    MyZola.First Activity Should be Follow
 
 Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Bestsellers
-    ${BOOK_TITLE}=    Bestsellers.Get First Book Title
-    Bestsellers.Rate First Book
-    Bestsellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Click Follow First ACP
+    ACPList.Click My Zola
+    MyZola.First Activity Should be Follow
 
 Not Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
     Home.Click Sign Out
-    Home.Click Bestsellers
-    ${BOOK_TITLE}=    Bestsellers.Get First Book Title
-    Bestsellers.Rate First Book
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Click Follow First ACP
     SignInModal.Sign In    ${EMAIL}    password
-    Bestsellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    ACPList.Click My Zola
+    MyZola.First Activity Should be Follow
