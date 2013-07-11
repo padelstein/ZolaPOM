@@ -1,0 +1,28 @@
+*** Settings ***
+Test Setup        WebDriverWrapper.Open Firefox
+Library           ../../POMtesting/page_objects/WebDriverWrapper.py
+Library           ../../POMtesting/page_objects/Home.py
+Library           ../../POMtesting/page_objects/MyZola.py
+Library           ../../POMtesting/page_objects/SignUp.py
+Library           ../../POMtesting/page_objects/ACPList.py
+Library           ../../POMtesting/page_objects/ACPProfile.py
+Library           ../../POMtesting/modal_objects/SignInModal.py
+Library           ../../POMtesting/modal_objects/ACPModal.py
+
+*** Test Cases ***
+Star User's Activity
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Click First ACP
+    ACPModal.Click Full Profile
+    ${NAME}=    ACPProfile.Get Name
+    ACPProfile.Star First Activity
+    ACPProfile.Click My Zola
+    MyZola.Click Starred
+    MyZola.First Starred Activity Should be From    ${NAME}

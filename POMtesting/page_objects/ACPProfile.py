@@ -39,6 +39,19 @@ class ACPProfile:
         ''' clicks the follow link '''
         self._confirm_page()
         
-        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/header/ul/li[1]/a[1]').click()    
+        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/header/ul/li[1]/a[1]').click()
+        
+    def star_first_activity(self):
+        ''' stars the first activity on the page '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]').find_element_by_xpath('ul[1]/li/a').click()
+        
+    ########################################################################
+    ########################################################################
+    
+    def get_name(self):
+        _name = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/header/div[2]/div/h2/span')
+        return _name.text
     
     

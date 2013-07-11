@@ -47,6 +47,15 @@ class MyZola:
         
     ########################################################################
     ########################################################################
+    
+    def click_starred(self):
+        ''' clicks the starred filter on the activities '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('ui-buttonset-filterbar-3').find_element_by_xpath('ul/li[3]/a').click()
+    
+    ########################################################################
+    ########################################################################
         
     def first_activity_should_be_purchased_book(self, _book_title):
         ''' raises AssertionError if page title is not arg1 '''
@@ -80,3 +89,11 @@ class MyZola:
         _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
         if not "rated" in _description or _book_title != _actual_book_title:
             raise AssertionError("First activity should have been rated %s" % (_actual_book_title))
+        
+    def first_starred_activity_should_be_from(self, _name):
+        ''' raises AssertionError if first starred activity is not from _name '''
+        self._confirm_page()
+        
+        _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div/h5/a[2]').text
+        if not _actual_name in _name:
+            raise AssertionError("First starred activity should have been from %s but was %s" % (_name, _actual_name))
