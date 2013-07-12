@@ -30,11 +30,3 @@ class BooksellerProfile:
         
     def click_unpledge(self):
         self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/div/section/div/a').click()
-    
-<<<<<<< HEAD
-   
-=======
-    def click_my_zola(self):
-        time.sleep(2)
-        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
->>>>>>> 98f713de049d992e461a8e69ff9dc10da918ac24
