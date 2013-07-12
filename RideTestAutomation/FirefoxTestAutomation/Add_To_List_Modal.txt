@@ -1,0 +1,9 @@
+*** Test Cases ***
+No Account
+
+Signed In
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click On First Bestseller
+
+Not Signed In
