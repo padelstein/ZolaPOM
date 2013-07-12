@@ -15,6 +15,8 @@ import time
 
 class Booksellers:
     
+    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
+    
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         

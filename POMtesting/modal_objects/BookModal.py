@@ -15,6 +15,8 @@ from robot.libraries.BuiltIn import BuiltIn
 import time
 
 class BookModal:
+    
+    ROBOT_LIBRARY_SCOPE = 'GLOBAL'
 
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
@@ -60,7 +62,7 @@ class BookModal:
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
-         #self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li[9]/a').click()
+        #self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li[9]/a').click()
 
          
     def click_view_your_list(self):
