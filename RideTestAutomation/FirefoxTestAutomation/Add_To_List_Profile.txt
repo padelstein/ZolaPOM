@@ -3,6 +3,12 @@ No Account
 
 Signed In
     Home.Click Sign In
-    SignInModal.Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
 
 Not Signed In
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out

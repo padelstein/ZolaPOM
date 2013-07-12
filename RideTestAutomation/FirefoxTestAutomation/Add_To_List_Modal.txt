@@ -9,6 +9,15 @@ Signed In
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click First Bestseller
-    Home.Book
+    Home.BookModal.Get Book Title
+    Home.BookModal.Click Add To List
+    Home.BookModal.Choose Wishlist
+    Home.BookModal.Close Modal
+    Home.Click My Zola
+    MyZola.First Activity Should Be Added Book
 
 Not Signed In
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out

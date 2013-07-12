@@ -10,10 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 from robot.libraries.BuiltIn import BuiltIn
-<<<<<<< HEAD
 
-=======
->>>>>>> 98f713de049d992e461a8e69ff9dc10da918ac24
 class BooksellerModal:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
