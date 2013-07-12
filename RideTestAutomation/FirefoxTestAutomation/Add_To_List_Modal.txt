@@ -3,7 +3,12 @@ No Account
 
 Signed In
     Home.Click Sign In
-    SignInModal.Sign In
-    Home.Click On First Bestseller
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
+    Home.Click First Bestseller
+    Home.Book
 
 Not Signed In
