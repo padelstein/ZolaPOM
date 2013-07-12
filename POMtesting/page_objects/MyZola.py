@@ -80,3 +80,12 @@ class MyZola:
         _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
         if not "rated" in _description or _book_title != _actual_book_title:
             raise AssertionError("First activity should have been rated %s" % (_actual_book_title))
+        
+    def first_activity_should_be_added_book(self, _book_title):
+        ''' raises AssertionError if first activity is not an add the proper book'''
+        self._confirm_page()
+        
+        _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+        _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        if not "added" in _description or _book_title != _actual_book_title:
+            raise AssertionError("First activity should have been added %s" % (_actual_book_title))

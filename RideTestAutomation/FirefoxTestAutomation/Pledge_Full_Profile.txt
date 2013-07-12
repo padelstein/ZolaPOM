@@ -12,10 +12,24 @@ Library           ../../POMtesting/page_objects/SignUp.py
 
 *** Test Cases ***
 No Account
+    Home.Hover Over Connect Dropdown
+    Home.Click On Link    Booksellers
+    ACPList.Click First ACP
+    BooksellerModal.Click Full Profile
+    BooksellerProfile.Click Pledge
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    PledgeModal.Pledge Confirm
+    PledgeModal.Initial Unpledge
+    PledgeModal.Unpledge Confirm
 
 Signed In
     Home.Click Sign In
-    SignInModal.Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Hover Over Connect Dropdown
     Home.Click On Link    Booksellers
     ACPList.Click First ACP
@@ -26,3 +40,16 @@ Signed In
     PledgeModal.Unpledge Confirm
 
 Not Signed In
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Hover Over Connect Dropdown
+    Home.Click On Link    Booksellers
+    ACPList.Click First ACP
+    BooksellerModal.Click Full Profile
+    BooksellerProfile.Click Pledge
+    SignInModal.Sign In    ${EMAIL}    password
+    PledgeModal.Pledge Confirm
+    PledgeModal.Initial Unpledge
+    PledgeModal.Unpledge Confirm

@@ -29,7 +29,7 @@ class SignInModal:
         
     def sign_in(self, _username='davidtennant@zolabooks.com', _password='kingkong'): 
 
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'sign in modal not present')
 
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_name('username'), _username)
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_name('password'), _password)
