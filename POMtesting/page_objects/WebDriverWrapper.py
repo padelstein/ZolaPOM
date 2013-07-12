@@ -24,6 +24,14 @@ class WebDriverWrapper:
         self._driver.implicitly_wait(10)
         self.wait = WebDriverWait(self._driver, 15)
         self._driver.get(self._authUrl)
+        
+    def open_chrome(self):
+        self._driver = webdriver.Chrome('/Library/Python/2.7/site-packages/chromedriver')
+        self._driver.maximize_window()
+        self._driver.implicitly_wait(10)
+        self.wait = WebDriverWait(self._driver, 15)
+        self._driver.get(self._authUrl)
+        
     
     def go_to_zola(self):
         self._driver.get(self._authUrl)

@@ -24,37 +24,19 @@ Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
 
 *** Test Cases ***
-No Account
-    Home.Hover Over Connect Dropdown
-    Home.Click On Link    Booksellers
-    ACPList.Click First ACP
-    PledgeModal.Initial Pledge
-    SignInModal.Click Sign Up
-    SignUp.Submit New Member Info
-    PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
-    PledgeModal.Initial Unpledge
-    PledgeModal.Unpledge Confirm
-
-Signed In
+Star User's Activity
     Home.Click Sign In
-    SignInModal.Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Hover Over Connect Dropdown
-    Home.Click On Link    Booksellers
+    Home.Click on Link    Authors
     ACPList.Click First ACP
-    PledgeModal.Initial Pledge
-    PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
-    PledgeModal.Initial Unpledge
-    PledgeModal.Unpledge Confirm
-
-Not Signed In
-    Home.Hover Over Connect Dropdown
-    Home.Click On Link    Booksellers
-    ACPList.Click First ACP
-    PledgeModal.Initial Pledge
-    SignInModal.Sign In
-    PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
-    PledgeModal.Initial Unpledge
-    PledgeModal.Unpledge Confirm
+    ACPModal.Click Full Profile
+    ${NAME}=    ACPProfile.Get Name
+    ACPProfile.Star First Activity
+    ACPProfile.Click My Zola
+    MyZola.Click Starred
+    MyZola.First Starred Activity Should be From    ${NAME}

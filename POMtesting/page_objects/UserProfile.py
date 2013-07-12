@@ -13,7 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 import time
 from robot.libraries.BuiltIn import BuiltIn
 
-class ACPProfile:
+class UserProfile:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
@@ -32,6 +32,10 @@ class ACPProfile:
         time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
         
+    def click_sign_out(self):
+        ''' clicks the sign out link '''
+        self._webd_wrap._driver.find_element_by_id('logout-link').click()
+        
     ########################################################################
     ########################################################################
         
@@ -47,11 +51,27 @@ class ACPProfile:
         
         self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]').find_element_by_xpath('ul[1]/li/a').click()
         
+    def click_send_message(self):
+        ''' clicks the send message link '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/header/ul/li[2]/a').click()
+        
     ########################################################################
     ########################################################################
     
     def get_name(self):
+        ''' returns the name of the user '''
+        self._confirm_page()
+        
         _name = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/header/div[2]/div/h2/span')
         return _name.text
+    
+    def get_url_ext(self):
+        ''' returns the url extension for the user '''
+        self._confirm_page()
+        
+        _url = self._webd_wrap._driver.current_url
+        return _url.replace('https://zolaqc.com/profile')
     
     

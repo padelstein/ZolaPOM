@@ -47,6 +47,43 @@ class MyZola:
         
     ########################################################################
     ########################################################################
+    
+    def click_starred(self):
+        ''' clicks the starred filter on the activities '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('ui-buttonset-filterbar-3').find_element_by_xpath('ul/li[3]/a').click()
+        
+    def click_messages(self):
+        ''' clicks the users message link '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('ui-buttonset-filterbar-3').find_element_by_xpath('ul/li[2]/a').click()
+    
+    def click_my_followers(self):
+        ''' clicks the users followers link '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div[1]/div[2]/a[1]').click()
+    
+    ########################################################################
+    ################## Follower/Following Lists ############################
+    ########################################################################
+    
+    def click_first_user(self):
+        ''' clicks first user in followers or following list '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/section[1]/div/div/div[1]/h5/a').click()
+        
+    def click_follow_first_user(self):
+        ''' clicks follow first user in followers or following list '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/section[1]/div/div/div[2]/a[1]').click()
+        
+    ########################################################################
+    ########################################################################
         
     def first_activity_should_be_purchased_book(self, _book_title):
         ''' raises AssertionError if page title is not arg1 '''
@@ -81,6 +118,7 @@ class MyZola:
         if not "rated" in _description or _book_title != _actual_book_title:
             raise AssertionError("First activity should have been rated %s" % (_actual_book_title))
         
+<<<<<<< HEAD
     def first_activity_should_be_added_book(self, _book_title):
         ''' raises AssertionError if first activity is not an add the proper book'''
         self._confirm_page()
@@ -89,3 +127,20 @@ class MyZola:
         _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
         if not "added" in _description or _book_title != _actual_book_title:
             raise AssertionError("First activity should have been added %s" % (_actual_book_title))
+=======
+    def first_starred_activity_should_be_from(self, _name):
+        ''' raises AssertionError if first starred activity is not from _name '''
+        self._confirm_page()
+        
+        _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div/h5/a[2]').text
+        if not _actual_name in _name:
+            raise AssertionError("First starred activity should have been from %s but was %s" % (_name, _actual_name))
+        
+    def first_message_should_be_from(self, _name):
+        ''' raises AssertionError if first message is not from _name '''
+        self._confirm_page()
+        
+        _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5/a').text
+        if _actual_name.lower() != _name.lower():
+            raise AssertionError("First message should have been from %s but was %s" % (_name.lower(), _actual_name.lower()))
+>>>>>>> 98f713de049d992e461a8e69ff9dc10da918ac24
