@@ -11,6 +11,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from robot.libraries.BuiltIn import BuiltIn
 
+
 class BooksellerModal:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'

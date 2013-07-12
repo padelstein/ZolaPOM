@@ -31,5 +31,4 @@ class BooksellerProfile:
     def click_unpledge(self):
         self._webd_wrap._driver.refresh()
         self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/div/section/div/a').click()
-    
-        
+
