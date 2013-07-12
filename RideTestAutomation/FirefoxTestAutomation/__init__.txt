@@ -1,4 +1,6 @@
 *** Settings ***
+Test Setup        WebDriverWrapper.Open Firefox
+Test Teardown     WebDriverWrapper.Close the Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/UserProfile.py
 Library           ../../POMtesting/page_objects/SignUp.py
@@ -22,39 +24,3 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
-
-*** Test Cases ***
-No Account
-    Home.Hover Over Connect Dropdown
-    Home.Click On Link    Booksellers
-    ACPList.Click First ACP
-    PledgeModal.Initial Pledge
-    SignInModal.Click Sign Up
-    SignUp.Submit New Member Info
-    PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
-    PledgeModal.Initial Unpledge
-    PledgeModal.Unpledge Confirm
-
-Signed In
-    Home.Click Sign In
-    SignInModal.Sign In
-    Home.Hover Over Connect Dropdown
-    Home.Click On Link    Booksellers
-    ACPList.Click First ACP
-    PledgeModal.Initial Pledge
-    PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
-    PledgeModal.Initial Unpledge
-    PledgeModal.Unpledge Confirm
-
-Not Signed In
-    Home.Hover Over Connect Dropdown
-    Home.Click On Link    Booksellers
-    ACPList.Click First ACP
-    PledgeModal.Initial Pledge
-    SignInModal.Sign In
-    PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
-    PledgeModal.Initial Unpledge
-    PledgeModal.Unpledge Confirm

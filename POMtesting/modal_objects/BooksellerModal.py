@@ -10,18 +10,11 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 
 from robot.libraries.BuiltIn import BuiltIn
-
-<<<<<<< HEAD
 class BooksellerModal:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
     def __init__(self):
-=======
-class bookseller_modal():
-    
-    def __init__(self, webd_wrap):
->>>>>>> 58cfc421ad3db0c73cca32b876bc7c888e6b2a8c
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
     def close_modal(self):
