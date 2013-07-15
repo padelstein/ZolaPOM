@@ -34,6 +34,12 @@ class Category:
         
         self._webd_wrap._driver.find_element_by_class_name("l-main-primary").find_element_by_xpath("section[3]/div/a/img").click()
         
+    def click_second_book(self):
+        ''' clicks first book in the main list '''
+        self._confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name("l-main-primary").find_element_by_xpath("section[4]/div/a/img").click()
+        
     def page_title_should_be(self, _correct_title):
         ''' raises AssertionError if page title is not arg1 '''
         actual = self._webd_wrap._driver.title

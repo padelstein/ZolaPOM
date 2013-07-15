@@ -40,6 +40,9 @@ Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPList.Click First ACP

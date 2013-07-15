@@ -39,7 +39,7 @@ User Message
     MyZola.Click Follow First User
     MyZola.Click First User
     UserModal.Click Send Message
-    MessageModal.Enter Message    test
+    MessageModal.Enter Message
     MessageModal.Submit Message
     MessageModal.Close Modal
     MyZola.Click Sign Out
