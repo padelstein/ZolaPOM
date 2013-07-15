@@ -56,3 +56,6 @@ class SignUp:
 
     def register_submit(self):
         self._webd_wrap._driver.find_element_by_name("submit").click()
+        
+    def click_skip_this(self):
+        self._webd_wrap._driver.find_element_by_xpath("/html/body/div[3]/div/div/footer/form/a").click()

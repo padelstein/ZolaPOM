@@ -40,6 +40,7 @@ Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
+    SignUp.Click Skip This
     Home.Click Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password

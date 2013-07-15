@@ -32,7 +32,13 @@ class Home:
         ''' clicks the sign out link '''
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
         
+    def click_on_link(self, _link_text):
+        ''' clicks on a link with arg1 as the link text '''
+        self._webd_wrap._driver.find_element_by_link_text(_link_text).click()
+        WebDriverWait(self._webd_wrap._driver, 10).until(EC.title_contains("Zola"))
+        
     ########################################################################
+    #######################whatever#################
     ########################################################################
 
     def hover_over_category_dropdown(self):
@@ -50,11 +56,6 @@ class Home:
     def click_bestsellers(self):
         ''' clicks the link to the bestsellers list '''
         self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_xpath('div/nav/ul/li[3]/a').click()    
-        
-    def click_on_link(self, _link_text):
-        ''' clicks on a link with arg1 as the link text '''
-        self._webd_wrap._driver.find_element_by_link_text(_link_text).click()
-        WebDriverWait(self._webd_wrap._driver, 10).until(EC.title_contains("Zola"))
         
     def click_first_bestseller(self):
         ''' clicks the first item in the bestseller list '''
