@@ -45,6 +45,13 @@ class MyZola:
         
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
         
+    def confirm_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _url = self._webd_wrap._driver.current_url
+        _title = self.webd_wrap._driver.title
+        if not _url.startswith('https://zolaqc.com/profile'):
+            raise AssertionError("Not on a Category page.")
+        
     ########################################################################
     ########################################################################
     

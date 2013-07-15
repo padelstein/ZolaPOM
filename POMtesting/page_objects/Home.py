@@ -36,6 +36,11 @@ class Home:
         ''' clicks on a link with arg1 as the link text '''
         self._webd_wrap._driver.find_element_by_link_text(_link_text).click()
         WebDriverWait(self._webd_wrap._driver, 10).until(EC.title_contains("Zola"))
+
+    def click_my_ebooks(self):
+        ''' clicks the my ebooks link '''
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('ul/li[1]/a').click()
+
         
     ########################################################################
     #######################whatever#################
