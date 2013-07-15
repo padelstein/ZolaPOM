@@ -34,12 +34,12 @@ Signed In
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click First Bestseller
-    BookModal.Get Book Title
+    ${BOOK_TITLE}=    BookModal.Get Book Title
     BookModal.Click Add To List
     BookModal.Choose Wishlist
     BookModal.Close Modal
     Home.Click My Zola
-    MyZola.First Activity Should Be Added Book
+    MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
 
 Not Signed In
     Home.Click Sign In

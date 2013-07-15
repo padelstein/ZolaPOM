@@ -123,9 +123,11 @@ class MyZola:
         self._confirm_page()
         
         _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+        print _actual_book_title
         _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
-        if not "added" in _description or _book_title != _actual_book_title:
-            raise AssertionError("First activity should have been added %s" % (_actual_book_title))
+        print _description
+        if "added" not in _description or _book_title.strip() != _actual_book_title.strip():
+            raise AssertionError("First activity should have been added %s but was %s" % (_actual_book_title, _book_title))
 
     def first_starred_activity_should_be_from(self, _name):
         ''' raises AssertionError if first starred activity is not from _name '''

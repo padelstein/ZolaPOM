@@ -58,7 +58,7 @@ class BookModal:
     def choose_wishlist(self):
         #self.driver.find_element_by_name(list_name).click()
         #self._driver.find_element_by_class_name("margin-bottom-20px").find_element_by_xpath("ul/li[8]/a").click()
-        _element = self._webd_wrap.driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
+        _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
