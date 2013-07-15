@@ -7,7 +7,6 @@ Library           ../../POMtesting/page_objects/Home.py
 Library           ../../POMtesting/page_objects/Category.py
 Library           ../../POMtesting/page_objects/Booksellers.py
 Library           ../../POMtesting/page_objects/BooksellerProfile.py
-Library           ../../POMtesting/page_objects/Book.py
 Library           ../../POMtesting/page_objects/Bestsellers.py
 Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/page_objects/ACPProfile.py
@@ -22,6 +21,7 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
+Library           ../../POMtesting/page_objects/Book.py
 
 *** Test Cases ***
 No Account
@@ -59,7 +59,7 @@ Not Signed In
     Home.Click First Bestseller
     ${BOOK_TITLE}=    BookModal.Get Book Title
     BookModal.Click Full Profile
-    BookModal.Click Add To List Nsi
+    Book.Click Add To List Nsi
     SignInModal.Sign In    ${EMAIL}    password
     Book.Choose Wishlist
     Book.Click My Zola
