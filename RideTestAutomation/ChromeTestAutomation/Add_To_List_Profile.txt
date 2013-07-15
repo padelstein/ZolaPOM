@@ -7,7 +7,6 @@ Library           ../../POMtesting/page_objects/Home.py
 Library           ../../POMtesting/page_objects/Category.py
 Library           ../../POMtesting/page_objects/Booksellers.py
 Library           ../../POMtesting/page_objects/BooksellerProfile.py
-Library           ../../POMtesting/page_objects/Book.py
 Library           ../../POMtesting/page_objects/Bestsellers.py
 Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/page_objects/ACPProfile.py
@@ -22,29 +21,46 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
+Library           ../../POMtesting/page_objects/Book.py
 
 *** Test Cases ***
-User Message
+No Account
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Full Profile
+    Book.Click Add To List Nsi
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    Book.Click Add To List
+    Book.Choose Wishlist
+    Home.Click My Zola
+    MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
+
+Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click My Zola
-    WebDriverWrapper.Open Page    /profile/david-tennant/
-    UserProfile.Click Follow
-    UserProfile.Click Sign Out
-    Home.Click Sign In
-    SignInModal.Sign In    davidtennant@zolabooks.com    kingkong
-    Home.Click My Zola
-    MyZola.Click My Followers
-    MyZola.Click Follow First User
-    MyZola.Click First User
-    UserModal.Click Send Message
-    MessageModal.Enter Message
-    MessageModal.Submit Message
-    MessageModal.Close Modal
-    MyZola.Click Sign Out
+    Home.Click Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
-    Home.Click My Zola
-    MyZola.Click Messages
-    MyZola.First Message Should be From    David
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Full Profile
+    Book.Click Add To List
+    Book.Choose Wishlist
+    Book.Click My Zola
+    MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
+
+Not Signed In
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Full Profile
+    Book.Click Add To List Nsi
+    SignInModal.Sign In    ${EMAIL}    password
+    Book.Choose Wishlist
+    Book.Click My Zola
+    MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}

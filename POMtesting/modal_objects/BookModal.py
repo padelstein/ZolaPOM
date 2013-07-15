@@ -20,34 +20,60 @@ class BookModal:
 
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
+       
+    def _confirm_modal(self):
+        ''' raises AssertionError if modal is incorrect '''
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'modal not present')
         
+        _full_profile_link = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
+        print '##########' + _full_profile_link.text + "################"
+        if "full book info" not in _full_profile_link.text.lower():
+            raise AssertionError("Not on a Book Modal.")
+     
     def close_modal(self):
+        self._confirm_modal()
+        
         _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
-    
+        
     ########################################################################
         
     def rate(self):
+        ''' rates the book '''
+        self._confirm_modal()
+        
         self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]').find_element_by_class_name('ui-rating-bar-section-large').find_element_by_xpath('span/div[3]/a').click()    
         
     def click_buy(self):
+        ''' clicks the buy button on the book modal '''
+        self._confirm_modal()
+        
         _purchase_button = self._webd_wrap._driver.find_element_by_class_name('l-230px').find_element_by_xpath('div/div/span/a')
         self._webd_wrap._driver.execute_script('$(arguments[0]).click()', _purchase_button)
         self._webd_wrap.wait.until(EC.title_contains("Zola"))
         
     def click_recommend(self):
+        ''' clicks the recommend button on the book modal '''
+        self._confirm_modal()
+        
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
         
         _recommend_button = self._webd_wrap._driver.find_element_by_class_name("l-230px").find_element_by_xpath("div/div/ul/li[3]/a")
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _recommend_button)
         
     def click_full_profile(self):
+        ''' clicks the full profile button on the book modal '''
+        self._confirm_modal()
+        
         _full_profile = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _full_profile)
     
     ########################################################################
         
     def get_book_title(self):
+        ''' returns the title of the book '''
+        self._confirm_modal()
+        
         self._webd_wrap.wait.until(EC.title_contains("Zola"))
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
         time.sleep(1)
@@ -56,17 +82,24 @@ class BookModal:
         return _elt.text
     
     def choose_wishlist(self):
+        ''' once add to list dialog is displayed, chooses the wishlist '''
+        self._confirm_modal()
+        
         _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
 
-         
     def click_view_your_list(self):
+        ''' clicks the view your list option after adding the book the the list '''
+        self._confirm_modal()
+        
         self.webd_wrap._driver.find_element_by_class_name('move-left-10px').find_element_by_xpath('li[2]/a').click()
-        
-        
+                
     def click_add_to_list(self):
+        ''' clicks the add to list button '''
+        self._confirm_modal()
+        
         add_to_list = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/a')
         #add_to_list = self._driver.find_element_by_class_name('l-230px').find_element_by_xpath('div/div/section[2]/div/div/ul/li[2]/div/a')    
         hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list)
@@ -74,6 +107,9 @@ class BookModal:
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list)
     
     def click_add_to_list_nsi(self):
+        ''' clicks the add to list button '''
+        self._confirm_modal()
+        
         add_to_list_nsi= self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/a')
         hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list_nsi)
         hover.perform()

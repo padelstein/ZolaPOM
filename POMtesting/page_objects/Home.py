@@ -63,4 +63,7 @@ class Home:
         _bestseller = self._webd_wrap._driver.find_element_by_id('best-sellers').find_element_by_xpath('ul/li/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _bestseller)
         
+    def click_category(self, _category):
+        self._webd_wrap._driver.find_element_by_id('s-browse-by-category').find_element_by_link_text(_category).click()
+        
     

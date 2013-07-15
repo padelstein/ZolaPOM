@@ -13,6 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from robot.libraries.BuiltIn import BuiltIn
 
 import time
+import random
 
 class MessageModal:
     
@@ -28,7 +29,10 @@ class MessageModal:
     ########################################################################
     ########################################################################
     
-    def enter_message(self, _message):
+    def enter_message(self, _message=None):
+        if _message is None:
+            _message = 'test' + str(random.randint(0,1000000000))
+        
         _message_field = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_id('message-form').find_element_by_xpath('section/div/section/div/p[2]/textarea')
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', _message_field, _message)
         

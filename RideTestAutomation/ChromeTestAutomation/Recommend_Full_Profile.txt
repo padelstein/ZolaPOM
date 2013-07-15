@@ -34,7 +34,7 @@ No Account
     SignUp.Submit New Member Info
     RecommendModal.Submit Recommend
     RecommendModal.Close Modal
-    Bestsellers.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Signed In
@@ -51,7 +51,7 @@ Signed In
     Book.Click Recommend
     RecommendModal.Submit Recommend
     RecommendModal.Close Modal
-    Bestsellers.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Not Signed In
@@ -67,5 +67,5 @@ Not Signed In
     SignInModal.Sign In    ${EMAIL}    password
     RecommendModal.Submit Recommend
     RecommendModal.Close Modal
-    Bestsellers.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
