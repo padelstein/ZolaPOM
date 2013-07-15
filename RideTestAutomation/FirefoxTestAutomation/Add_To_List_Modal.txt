@@ -1,6 +1,9 @@
 *** Settings ***
+<<<<<<< HEAD
 Test Setup        WebDriverWrapper.Open Firefox
 Test Teardown     WebDriverWrapper.Close The Browser
+=======
+>>>>>>> 7412b59bd2d50b95ddee5672e5fe8547d0cd2662
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/UserProfile.py
 Library           ../../POMtesting/page_objects/SignUp.py
@@ -46,7 +49,11 @@ Signed In
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click First Bestseller
+<<<<<<< HEAD
     ${BOOK_TITLE}=    BookModal.Get Book Title
+=======
+    BookModal.Get Book Title
+>>>>>>> 7412b59bd2d50b95ddee5672e5fe8547d0cd2662
     BookModal.Click Add To List
     BookModal.Choose Wishlist
     BookModal.Close Modal
