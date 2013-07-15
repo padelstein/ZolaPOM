@@ -1,4 +1,6 @@
 *** Settings ***
+Test Setup        WebDriverWrapper.Open Firefox
+Test Teardown     WebDriverWrapper.Close The Browser
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/UserProfile.py
 Library           ../../POMtesting/page_objects/SignUp.py
@@ -25,6 +27,16 @@ Library           ../../POMtesting/modal_objects/UserModal.py
 
 *** Test Cases ***
 No Account
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Add To List Nsi
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    BookModal.Click Add To List
+    BookModal.Choose Wishlist
+    BookModal.Close Modal
+    Home.Click My Zola
+    MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
 
 Signed In
     Home.Click Sign In
@@ -46,3 +58,11 @@ Not Signed In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
     Home.Click Sign Out
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Add To List Nsi
+    SignInModal.Sign In    ${EMAIL}    password
+    BookModal.Choose Wishlist
+    BookModal.Close Modal
+    Home.Click My Zola
+    MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
