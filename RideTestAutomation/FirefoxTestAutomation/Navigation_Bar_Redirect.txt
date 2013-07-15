@@ -1,0 +1,17 @@
+*** Test Cases ***
+Bestsellers
+    Home.Click Bestsellers
+    Bestsellers.Confirm Page
+
+My eBooks
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click My eBooks
+    MyEBooks.Confirm Page
+    MyEBooks.Page Title Should Be    Zola Books | Your Collection
+
+My Zola
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click My Zola
+    MyZola.Confirm Page

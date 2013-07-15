@@ -32,6 +32,10 @@ class Home:
         ''' clicks the sign out link '''
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
         
+    def click_my_ebooks(self):
+        ''' clicks the my ebooks link '''
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('ul/li[1]/a').click()
+        
     ########################################################################
     ########################################################################
 

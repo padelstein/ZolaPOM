@@ -29,7 +29,7 @@ No Account
     Home.Click First Bestseller
     ${BOOK_TITLE}=    BookModal.Get Book Title
     BookModal.Click Buy
-    SignInModal.Click Signup
+    SignInModal.Click Sign Up
     SignUp.Submit New Member Info
     AddCard.Submit New CC Info
     PurchaseConfirmModal.Click Receive Emails
