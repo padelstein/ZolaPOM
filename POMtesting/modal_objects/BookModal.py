@@ -54,13 +54,10 @@ class BookModal:
         return _elt.text
     
     def choose_wishlist(self):
-        #self.driver.find_element_by_name(list_name).click()
-        #self._driver.find_element_by_class_name("margin-bottom-20px").find_element_by_xpath("ul/li[8]/a").click()
-        _element = self._webd_wrap.driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
+        _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
-         #self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li[9]/a').click()
 
          
     def click_view_your_list(self):
@@ -75,7 +72,7 @@ class BookModal:
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list)
     
     def click_add_to_list_nsi(self):
-        add_to_list_nsi= self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/a')
+        add_to_list_nsi= self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/section[2]/div[2]/div/div/ul/li[2]/a')
         hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list_nsi)
         hover.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list_nsi)
