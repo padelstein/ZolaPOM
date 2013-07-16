@@ -20,22 +20,21 @@ class MyEBooks:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
-    def click_my_zola(self):
-        time.sleep(2)
-        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
-        
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
-        if not _url.startswith('https://zolaqc.com/collection'):
-            raise AssertionError("Not on a Category page.")
         
-    def page_title_should_be(self, _correct_title):
-        ''' raises AssertionError if page title is not arg1 '''
-        actual = self._webd_wrap._driver.title
-        if actual != _correct_title:
-            raise AssertionError("Title should have been %s but was %s" % (_correct_title, actual))
+        if not _url.startswith('https://zolaqc.com/collection') or _title != 'Zola Books | Your Collection':
+            raise AssertionError("Not on the My eBooks page.")
+    
+    def click_my_zola(self):
+        self.confirm_page()
+        
+        time.sleep(2)
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
+            
         
     ########################################################################
     ########################################################################
