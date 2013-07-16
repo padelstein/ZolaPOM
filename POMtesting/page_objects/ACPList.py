@@ -20,7 +20,28 @@ class ACPList:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def confirm_page(self, _acp_type):
+        ''' raises AssertionError if page is incorrect. takes the type of acp as arg1 '''
+        _actual_url = self._webd_wrap._driver.current_url
+        _actual_title = self._webd_wrap._driver.title
+        
+        _url = 'https://zolaqc.com/people/' + _acp_type
+        _title = 'Zola Books | ebook | ' + _acp_type.capitalize()
+        
+        if _url != _actual_url  or _title != _actual_title:
+            raise AssertionError("Not on the appropriate ACP list page.")  
+        
+    def _confirm_page(self):
+        ''' a second version for internal use that only checks the first part of the url'''
+        _actual_url = self._webd_wrap._driver.current_url
+        _url = 'https://zolaqc.com/people/'
+        
+        if not _actual_url.startswith(_url):
+            raise AssertionError("Not on an ACP list page.")    
+    
     def click_my_zola(self):
+        self.confirm_page()
+        
         time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
         
@@ -28,9 +49,15 @@ class ACPList:
     ########################################################################
         
     def click_first_acp(self):
+        ''' clicks the first acp in the main list '''
+        self.confirm_page()
+        
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/section[1]/div/div/div[1]/h5/a').click()
         
     def click_follow_first_acp(self):
+        ''' clicks follow on the first acp in the main list '''
+        self.confirm_page()
+        
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/section[1]/div/div/div[2]/a').click()
         
     ########################################################################

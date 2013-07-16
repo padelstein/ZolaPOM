@@ -22,12 +22,16 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
+Library           ../../POMtesting/page_objects/MyEBooks.py
 
 *** Test Cases ***
 User Message
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Click My Zola
     WebDriverWrapper.Open Page    /profile/david-tennant/
     UserProfile.Click Follow

@@ -22,6 +22,7 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
+Library           ../../POMtesting/page_objects/MyEBooks.py
 
 *** Test Cases ***
 No Account
@@ -42,6 +43,10 @@ Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
+    SignUp.Click Skip This
+    Home.Click Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Click First Bestseller
     ${BOOK_TITLE}=    BookModal.Get Book Title
     BookModal.Click Full Profile
@@ -57,6 +62,7 @@ Not Signed In
     Home.Click Sign In
     SignInModal.Click Sign Up
     ${EMAIL}=    SignUp.Submit New Member Info
+    SignUp.Click Skip This
     Home.Click Sign Out
     Home.Click First Bestseller
     ${BOOK_TITLE}=    BookModal.Get Book Title

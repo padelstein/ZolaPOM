@@ -25,30 +25,26 @@ Library           ../../POMtesting/modal_objects/UserModal.py
 Library           ../../POMtesting/page_objects/MyEBooks.py
 
 *** Test Cases ***
-User Message
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Sign Out
-    Home.Click Sign In
-    SignInModal.Sign In    ${EMAIL}    password
-    Home.Click My Zola
-    WebDriverWrapper.Open Page    /profile/david-tennant/
-    UserProfile.Click Follow
-    UserProfile.Click Sign Out
-    Home.Click Sign In
-    SignInModal.Sign In    davidtennant@zolabooks.com    kingkong
-    Home.Click My Zola
-    MyZola.Click My Followers
-    MyZola.Click Follow First User
-    MyZola.Click First User
-    UserModal.Click Send Message
-    MessageModal.Enter Message
-    MessageModal.Submit Message
-    MessageModal.Close Modal
-    MyZola.Click Sign Out
-    Home.Click Sign In
-    SignInModal.Sign In    ${EMAIL}    password
-    Home.Click My Zola
-    MyZola.Click Messages
-    MyZola.First Message Should be From    David
+Authors
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Confirm Page    authors
+
+Booksellers
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Booksellers
+    Booksellers.Confirm Page
+
+Curators
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Curators
+    ACPList.Confirm Page    curators
+
+Publishers
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Publishers
+    ACPList.Confirm Page    publishers
+
+Friends
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Friends
