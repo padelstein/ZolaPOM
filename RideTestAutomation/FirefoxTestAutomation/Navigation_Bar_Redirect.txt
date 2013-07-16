@@ -34,11 +34,9 @@ My eBooks
     SignInModal.Sign In
     Home.Click My eBooks
     MyEBooks.Confirm Page
-    MyEBooks.Page Title Should Be    Zola Books | Your Collection
 
 My Zola
     Home.Click Sign In
     SignInModal.Sign In
     Home.Click My Zola
-    MyZola.Confirm Page
-    MyZola.Page Title Should Be    Zola Books | David Tennant
+    MyZola.Confirm Page    David Tennant
