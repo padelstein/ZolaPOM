@@ -35,7 +35,7 @@ No Account
     PurchaseConfirmModal.Click Receive Emails
     PurchaseConfirmModal.Click Buy
     PurchaseConfirmModal.Click Done
-    Home.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
 
 Signed In
@@ -54,7 +54,7 @@ Signed In
     PurchaseConfirmModal.Click Receive Emails
     PurchaseConfirmModal.Click Buy
     PurchaseConfirmModal.Click Done
-    Home.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
 
 Not Signed In
@@ -72,5 +72,5 @@ Not Signed In
     PurchaseConfirmModal.Click Receive Emails
     PurchaseConfirmModal.Click Buy
     PurchaseConfirmModal.Click Done
-    Home.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
