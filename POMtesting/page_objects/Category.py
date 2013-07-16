@@ -21,6 +21,7 @@ class Category:
         
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        
         _url = self._webd_wrap._driver.current_url
         _title = self.webd_wrap._driver.title
         if not _url.startswith('https://zolaqc.com/category'):
@@ -28,6 +29,7 @@ class Category:
         
     def page_title_should_be(self, _correct_title):
         ''' raises AssertionError if page title is not arg1 '''
+        
         actual = self._webd_wrap._driver.title
         if actual != _correct_title:
             raise AssertionError("Title should have been %s but was %s" % (_correct_title, actual))

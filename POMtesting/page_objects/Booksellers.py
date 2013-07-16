@@ -22,6 +22,7 @@ class Booksellers:
         
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        
         _actual_url = self._webd_wrap._driver.current_url
         _actual_title = self._webd_wrap._driver.title
         
@@ -32,6 +33,8 @@ class Booksellers:
             raise AssertionError("Not on the Booksellers list page.")
         
     def click_my_zola(self):
+        self.confirm_page()
+        
         time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()    
         
