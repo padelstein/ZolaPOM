@@ -32,13 +32,11 @@ class WebDriverWrapper:
         self.wait = WebDriverWait(self._driver, 15)
         self._driver.get(self._authUrl)
         
-    
     def go_to_zola(self):
         self._driver.get(self._authUrl)
     
     def open_page(self, path):
         self._driver.get(self._baseUrl + path)
-        self._driver.maximize_window()    
         
     def close_the_browser(self):
         self._driver.quit()
