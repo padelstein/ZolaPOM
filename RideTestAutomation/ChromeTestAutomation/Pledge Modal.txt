@@ -23,6 +23,7 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
 Library           ../../POMtesting/page_objects/MyEBooks.py
+Resource          ../Common_Tasks.txt
 
 *** Test Cases ***
 No Account
@@ -38,11 +39,7 @@ No Account
     PledgeModal.Unpledge Confirm
 
 Signed In
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    SignUp.Click Skip This
-    Home.Click Sign Out
+    ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Hover Over Connect Dropdown
@@ -55,10 +52,7 @@ Signed In
     PledgeModal.Unpledge Confirm
 
 Not Signed In
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Sign Out
+    ${EMAIL}=    Register and Sign Out
     Home.Hover Over Connect Dropdown
     Home.Click On Link    Booksellers
     Booksellers.Click First Bookseller

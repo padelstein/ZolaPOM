@@ -23,6 +23,7 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
 Library           ../../POMtesting/page_objects/MyEBooks.py
+Resource          ../Common_Tasks.txt
 
 *** Test Cases ***
 Bestsellers
@@ -34,11 +35,9 @@ My eBooks
     SignInModal.Sign In
     Home.Click My eBooks
     MyEBooks.Confirm Page
-    MyEBooks.Page Title Should Be    Zola Books | Your Collection
 
 My Zola
     Home.Click Sign In
     SignInModal.Sign In
     Home.Click My Zola
-    MyZola.Confirm Page
-    MyZola.Page Title Should Be    Zola Books | David Tennant
+    MyZola.Confirm Page    David Tennant

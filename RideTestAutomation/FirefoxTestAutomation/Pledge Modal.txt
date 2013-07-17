@@ -39,14 +39,7 @@ No Account
     PledgeModal.Unpledge Confirm
 
 Signed In
-<<<<<<< HEAD
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Sign Out
-=======
     ${EMAIL}=    Register and Sign Out
->>>>>>> 935d51c7cc3314868313e0365d6d4a76fd5512b4
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Hover Over Connect Dropdown
