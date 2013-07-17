@@ -27,7 +27,7 @@ class Booksellers:
         _actual_title = self._webd_wrap._driver.title
         
         _url = 'https://zolaqc.com/people/booksellers'
-        _title = 'Zola Books | ebook | Booksellers'
+        _title = 'Zola Books | ebook |'# Booksellers'
         
         if _url != _actual_url  or _title != _actual_title:
             raise AssertionError("Not on the Booksellers list page.")
@@ -41,7 +41,7 @@ class Booksellers:
     ########################################################################
     ######################################################################## 
     
-    def click_first_boookseller(self):
+    def click_first_bookseller(self):
         ''' clicks the first acp in the main list '''
         self.confirm_page()
         
