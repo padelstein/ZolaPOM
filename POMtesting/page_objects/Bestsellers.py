@@ -40,7 +40,7 @@ class Bestsellers:
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/div/a[1]').click()
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]")))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]")), 'modal not present')
         
     def click_buy_first_book(self):
         self.confirm_page()
@@ -51,7 +51,7 @@ class Bestsellers:
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]').find_element_by_class_name('star-rating-control').find_element_by_xpath('div[4]').click()
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'star-rating-control')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'star-rating-control')), 'rating bar did not reload properly')
         
     def get_first_book_title(self):
         self.confirm_page()

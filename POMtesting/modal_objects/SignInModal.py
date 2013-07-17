@@ -26,6 +26,8 @@ class SignInModal:
     ########################################################################
     
     def click_sign_up(self):
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'sign in modal not present')        
+        
         _sign_up_button = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/section[2]/div/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _sign_up_button)
         

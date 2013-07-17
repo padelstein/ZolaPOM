@@ -32,13 +32,14 @@ class PurchaseConfirmModal:
         
         _receive_emails = self._webd_wrap._driver.find_element_by_id('receive_author_emails')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _receive_emails)
+        time.sleep(2)
         
     def click_buy(self):
         _buy_button = self._webd_wrap._driver.find_element_by_class_name("l-modal-section-content").find_element_by_xpath("footer/a[1]")
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _buy_button)
         
     def click_done(self):
-        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]")))
+        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]")), 'modal not present')
         
         time.sleep(3)
        

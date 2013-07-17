@@ -56,7 +56,7 @@ class BookModal:
         ''' clicks the recommend button on the book modal '''
         self._confirm_modal()
         
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'modal not present')
         
         _recommend_button = self._webd_wrap._driver.find_element_by_class_name("l-230px").find_element_by_xpath("div/div/ul/li[3]/a")
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _recommend_button)
@@ -75,7 +75,7 @@ class BookModal:
         self._confirm_modal()
         
         self._webd_wrap.wait.until(EC.title_contains("Zola"))
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'modal not present')
         time.sleep(1)
         _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
         print _elt.text

@@ -29,7 +29,7 @@ class Book:
     
     def click_my_zola(self):
         self.confirm_page()
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ui-rating-bar-section-large')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'ui-rating-bar-section-large')), 'rating bar not present')
         
         time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()   

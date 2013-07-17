@@ -35,7 +35,7 @@ class Home:
     def click_on_link(self, _link_text):
         ''' clicks on a link with arg1 as the link text '''
         self._webd_wrap._driver.find_element_by_link_text(_link_text).click()
-        WebDriverWait(self._webd_wrap._driver, 10).until(EC.title_contains("Zola"))
+        self._webd_wrap.wait.until(EC.title_contains("Zola"))
 
     def click_my_ebooks(self):
         ''' clicks the my ebooks link '''
@@ -64,7 +64,7 @@ class Home:
         
     def click_first_bestseller(self):
         ''' clicks the first item in the bestseller list '''
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'best-sellers')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'best-sellers')), 'bestseller list not present')
         _bestseller = self._webd_wrap._driver.find_element_by_id('best-sellers').find_element_by_xpath('ul/li/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _bestseller)
         
