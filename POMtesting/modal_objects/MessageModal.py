@@ -26,6 +26,8 @@ class MessageModal:
         _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
         
+        time.sleep(3)
+        
     ########################################################################
     ########################################################################
     

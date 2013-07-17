@@ -30,6 +30,8 @@ class Home:
         
     def click_sign_out(self):
         ''' clicks the sign out link '''
+        
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'h-user-toolbar')))
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
         
     def click_on_link(self, _link_text):

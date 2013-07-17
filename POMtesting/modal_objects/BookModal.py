@@ -26,7 +26,6 @@ class BookModal:
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'modal not present')
         
         _full_profile_link = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
-        print '##########' + _full_profile_link.text + "################"
         if "full book info" not in _full_profile_link.text.lower():
             raise AssertionError("Not on a Book Modal.")
      

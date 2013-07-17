@@ -32,7 +32,6 @@ class PurchaseConfirmModal:
         
         _receive_emails = self._webd_wrap._driver.find_element_by_id('receive_author_emails')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _receive_emails)
-        time.sleep(2)
         
     def click_buy(self):
         _buy_button = self._webd_wrap._driver.find_element_by_class_name("l-modal-section-content").find_element_by_xpath("footer/a[1]")
@@ -45,3 +44,5 @@ class PurchaseConfirmModal:
        
         _elt = self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_xpath('footer/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _elt)
+        
+        time.sleep(3)
