@@ -41,7 +41,7 @@ class Booksellers:
     ########################################################################
     ######################################################################## 
     
-    def click_first_boookseller(self):
+    def click_first_bookseller(self):
         ''' clicks the first acp in the main list '''
         self.confirm_page()
         
