@@ -23,6 +23,7 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
 Library           ../../POMtesting/page_objects/MyEBooks.py
+Resource          ../Common_Tasks.txt
 
 *** Test Cases ***
 No Account
@@ -38,10 +39,7 @@ No Account
     MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Signed In
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Sign Out
+    ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click Bestsellers
@@ -54,10 +52,7 @@ Signed In
     MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Not Signed In
-    Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    Home.Click Sign Out
+    ${EMAIL}=    Register and Sign Out
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title

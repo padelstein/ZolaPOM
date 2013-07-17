@@ -28,7 +28,7 @@ class PurchaseConfirmModal:
     ########################################################################
         
     def click_receive_emails(self):
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]")))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]")), 'Purchase Confirm Modal not present.')
         
         _receive_emails = self._webd_wrap._driver.find_element_by_id('receive_author_emails')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _receive_emails)

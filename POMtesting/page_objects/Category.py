@@ -23,7 +23,7 @@ class Category:
         ''' raises AssertionError if page is incorrect '''
         
         _url = self._webd_wrap._driver.current_url
-        _title = self.webd_wrap._driver.title
+        _title = self._webd_wrap._driver.title
         if not _url.startswith('https://zolaqc.com/category'):
             raise AssertionError("Not on a Category page.")
         
