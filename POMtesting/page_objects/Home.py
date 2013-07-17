@@ -72,3 +72,67 @@ class Home:
         self._webd_wrap._driver.find_element_by_id('s-browse-by-category').find_element_by_link_text(_category).click()
         
     
+    
+    ##############################################################################################################
+    ####################################LINKS#####################################################################
+    ##############################################################################################################
+    
+    def click_bottom_about_zola(self):
+        self._webd_wrap._driver.find_element_by_class_name("list-inline").find_element_by_xpath("li/a").click()
+     
+    def click_contact_us(self):
+        self._webd_wrap._driver.find_element_by_class_name("list-inline").find_element_by_xpath("li[6]/a").click()  
+        
+    def click_help(self):
+        self._webd_wrap._driver.find_element_by_class_name("list-inline").find_element_by_xpath("li[2]/a").click()
+        
+    def click_news(self):
+        self._webd_wrap._driver.find_element_by_class_name("list-inline").find_element_by_xpath("li[5]/a").click()
+        
+    def click_privacy(self):
+        self._webd_wrap._driver.find_element_by_class_name("list-inline").find_element_by_xpath("li[3]/a").click()
+        
+    def click_terms(self):
+        self._webd_wrap._driver.find_element_by_class_name("list-inline").find_element_by_xpath("li[4]/a").click()
+      
+    def click_copyright_icon(self):
+        self._webd_wrap._driver.find_element_by_class_name("site_logo").find_element_by_xpath("a").click()
+        
+    def click_copyright(self):
+        self._webd_wrap._driver.find_element_by_class_name("g-footer-copyright").find_element_by_xpath("a").click()
+        
+    def click_facebook_icon(self):
+        self._webd_wrap._driver.find_element_by_id("g-footer").find_element_by_xpath("div/nav/ul[2]/li/a/span").click()
+        
+    def click_twitter_icon(self):
+        self._webd_wrap._driver.find_element_by_id("g-footer").find_element_by_xpath("div/nav/ul[2]/li[2]/a/span").click()  
+        
+    ###################################################################################################################
+    #######################################NEW RELEASE LINKS###########################################################
+    ###################################################################################################################
+        
+    def click_fiction_new_releases_link(self, category, num):
+        self._webd_wrap._driver.find_element_by_class_name("tabs-nav").find_element_by_xpath("li[" + str(num) + "]/a/span").click()
+        
+        _tabs = self._webd_wrap._driver.find_element_by_class_name("tabs-nav").find_elements_by_xpath('li')
+        
+        for tab in _tabs:
+            if tab.get_attribute('class') == 'active':
+                _active_tab = tab.find_element_by_xpath('a/span').text
+
+        if _active_tab != category:
+            raise AssertionError('the correct tab is not selected')
+        
+    def click_nonfiction_new_releases_link(self, category, num):
+        self._webd_wrap._driver.find_element_by_class_name("l-main-primary").find_element_by_xpath("section[5]/div[2]/div/ul/li[" + str(num) + "]/a/span").click()
+        _tabs = self._webd_wrap._driver.find_element_by_class_name("l-main-primary").find_elements_by_xpath('section[5]/div[2]/div/ul/li')
+        
+        for tab in _tabs:
+            if tab.get_attribute('class') == 'active':
+                _active_tab = tab.find_element_by_xpath('a/span').text
+
+        if _active_tab != category:
+            raise AssertionError('the correct tab is not selected')
+                 
+        
+    
