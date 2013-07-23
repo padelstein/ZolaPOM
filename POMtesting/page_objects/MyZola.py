@@ -6,6 +6,7 @@ Created on Jul 2, 2013
 
 from selenium import webdriver #imports selenium
 from selenium.webdriver.common.by import By
+import selenium.common.exceptions as Exceptions
 from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
 from selenium.webdriver.common.action_chains import ActionChains
@@ -100,7 +101,11 @@ class MyZola:
         self.confirm_page()
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'activity-container')), 'no activities')
         
-        actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+        try:
+            actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No activity in the feed")
+            
         if actual != _book_title:
             raise AssertionError("Purchased book should have been %s but was %s" % (_book_title, actual))
     

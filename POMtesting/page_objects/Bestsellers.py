@@ -50,8 +50,13 @@ class Bestsellers:
     def rate_first_book(self):
         self.confirm_page()
         
-        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]').find_element_by_class_name('star-rating-control').find_element_by_xpath('div[4]').click()
+#         _elt = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]').find_element_by_class_name('star-rating-control').find_element_by_xpath('div[4]/a')
+#         
+#         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _elt)
+
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]').find_element_by_class_name('star-rating-control').find_element_by_xpath('div[4]/a').click()        
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'star-rating-control')), 'rating bar did not reload properly')
+        time.sleep(2)
         
     def get_first_book_title(self):
         self.confirm_page()
