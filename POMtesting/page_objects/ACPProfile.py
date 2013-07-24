@@ -4,14 +4,12 @@ Created on Jul 2, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from robot.libraries.BuiltIn import BuiltIn
 
 import time
-from robot.libraries.BuiltIn import BuiltIn
 
 class ACPProfile:
     
@@ -22,7 +20,9 @@ class ACPProfile:
         
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        
         _url = self._webd_wrap._driver.current_url
+        
         if not _url.startswith('https://zolaqc.com/profile'):
             raise AssertionError("Not on a profile page.")    
         
@@ -51,6 +51,8 @@ class ACPProfile:
     ########################################################################
     
     def get_name(self):
+        self.confirm_page()
+        
         _name = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('div/header/div[2]/div/h2/span')
         return _name.text
     

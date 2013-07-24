@@ -4,13 +4,10 @@ Created on Jul 2, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
 from selenium.webdriver.common.by import By
 import selenium.common.exceptions as Exceptions
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-
 from robot.libraries.BuiltIn import BuiltIn
 
 import time
@@ -28,6 +25,7 @@ class MyZola:
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
+        # enables option to test for a specific username of just a general My Zola page
         if _name is None:
             _actual_title = _title
         else:
@@ -113,7 +111,10 @@ class MyZola:
         ''' raises AssertionError if page title is not arg1 '''
         self.confirm_page()
         
-        actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+        try:
+            actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No activity in the feed")
         if actual != _book_title:
             raise AssertionError("Recommended book should have been %s but was %s" % (_book_title, actual))
         
@@ -121,7 +122,11 @@ class MyZola:
         ''' raises AssertionError if first activity is not a follow '''
         self.confirm_page()
         
-        actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        try:
+            actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No activity in the feed")
+        
         if not "following" in actual:
             raise AssertionError("First activity should have been a follow")
         
@@ -129,8 +134,12 @@ class MyZola:
         ''' raises AssertionError if first activity is not a rate the proper book '''
         self.confirm_page()
         
-        _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
-        _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        try:
+            _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+            _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No activity in the feed")
+        
         if not "rated" in _description or _book_title != _actual_book_title:
             raise AssertionError("First activity should have been rated %s" % (_actual_book_title))
         
@@ -138,10 +147,12 @@ class MyZola:
         ''' raises AssertionError if first activity is not an add the proper book'''
         self.confirm_page()
         
-        _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
-        print _actual_book_title
-        _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
-        print _description
+        try:
+            _actual_book_title = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
+            _description = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No activity in the feed")
+        
         if "added" not in _description or _book_title.strip() != _actual_book_title.strip():
             raise AssertionError("First activity should have been added %s but was %s" % (_actual_book_title, _book_title))
 
@@ -149,7 +160,11 @@ class MyZola:
         ''' raises AssertionError if first starred activity is not from _name '''
         self.confirm_page()
         
-        _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div/h5/a[2]').text
+        try:
+            _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div/h5/a[2]').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No activity in the feed")
+        
         if not _actual_name in _name:
             raise AssertionError("First starred activity should have been from %s but was %s" % (_name, _actual_name))
         
@@ -157,7 +172,11 @@ class MyZola:
         ''' raises AssertionError if first message is not from _name '''
         self.confirm_page()
         
-        _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5/a').text
+        try:
+            _actual_name = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[1]/h5/a').text
+        except Exceptions.NoSuchElementException:
+            raise AssertionError("No message in the feed")
+        
         if _actual_name.lower() != _name.lower():
             raise AssertionError("First message should have been from %s but was %s" % (_name.lower(), _actual_name.lower()))
 

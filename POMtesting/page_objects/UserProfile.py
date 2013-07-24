@@ -4,14 +4,13 @@ Created on Jul 2, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
+
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from robot.libraries.BuiltIn import BuiltIn
 
 import time
-from robot.libraries.BuiltIn import BuiltIn
 
 class UserProfile:
     
@@ -22,7 +21,9 @@ class UserProfile:
         
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        
         _url = self._webd_wrap._driver.current_url
+        
         if not _url.startswith('https://zolaqc.com/profile'):
             raise AssertionError("Not on a profile page.")    
         
@@ -34,6 +35,8 @@ class UserProfile:
         
     def click_sign_out(self):
         ''' clicks the sign out link '''
+        self.confirm_page()
+        
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
         
     ########################################################################

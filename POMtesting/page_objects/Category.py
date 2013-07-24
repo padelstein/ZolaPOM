@@ -4,12 +4,9 @@ Created on Jul 1, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-
 from robot.libraries.BuiltIn import BuiltIn
 
 import time
@@ -26,6 +23,7 @@ class Category:
         
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
+        
         if not _url.startswith('https://zolaqc.com/category'):
             raise AssertionError("Not on a Category page.")
         
@@ -33,6 +31,7 @@ class Category:
         ''' raises AssertionError if page title is not arg1 '''
         
         actual = self._webd_wrap._driver.title
+        
         if actual != _correct_title:
             raise AssertionError("Title should have been %s but was %s" % (_correct_title, actual))
         

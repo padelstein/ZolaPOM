@@ -4,12 +4,9 @@ Created on Jul 1, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
+from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
-
 from robot.libraries.BuiltIn import BuiltIn
 
 class AddCard:
@@ -21,7 +18,9 @@ class AddCard:
         
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        
         _url = self._webd_wrap._driver.current_url
+        
         if not _url.startswith('https://zolaqc.com/profile/add-card'):
             raise AssertionError("Not on the add card page.")
         
