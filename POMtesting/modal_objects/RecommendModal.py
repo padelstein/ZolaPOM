@@ -18,13 +18,16 @@ class RecommendModal():
         
     def _confirm_modal(self):
         
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'User modal not present')
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'User modal not present')
     
     def close_modal(self):
         self._confirm_modal()
         
         _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close) 
+        
+        # confirms the modal is gone
+        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
         
     ########################################################################
     
@@ -34,7 +37,10 @@ class RecommendModal():
         self.enter_email()
         self.click_checkbox()
         self.enter_message()
-        self.submit() 
+        self.submit()
+        
+        # confirms the modal is gone
+        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
        
     def enter_email(self):
         _recommend_email_form = self._webd_wrap._driver.find_element_by_id('recommend-modal').find_element_by_id('recommend-email-form')

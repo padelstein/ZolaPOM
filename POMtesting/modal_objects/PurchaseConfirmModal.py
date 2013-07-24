@@ -27,6 +27,9 @@ class PurchaseConfirmModal:
         _close = self._webd_wrap._driver.find_element_by_class_name('fancybox-skin').find_element_by_xpath('a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _close)
         
+        # confirms the modal is gone
+        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
+        
     ########################################################################
         
     def click_receive_emails(self):
@@ -44,7 +47,10 @@ class PurchaseConfirmModal:
         time.sleep(1)
         
     def click_done(self):
-        time.sleep(5)
+        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.ID, 'redeive_author_emails')))
        
         _elt = self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_xpath('footer/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _elt)
+        
+        # confirms the modal is gone
+        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))

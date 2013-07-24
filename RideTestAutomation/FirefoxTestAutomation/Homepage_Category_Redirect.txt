@@ -48,7 +48,7 @@ Children
     Home.Click Category    Art, Architecture, & Design
     Category.Page Title Should Be    Zola Books | ebook | Art, Architecture, & Design
     Category.Click First Book
-    BookModal.Close the Modal
+    BookModal.Close Modal
 
 Classics & Poetry
     Home.Click Category    Classics & Poetry
