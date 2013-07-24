@@ -4,12 +4,10 @@ Created on Jul 1, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
-from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
-from selenium.webdriver.common.action_chains import ActionChains
 
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 from robot.libraries.BuiltIn import BuiltIn
 
 import time
@@ -23,9 +21,11 @@ class BookModal:
        
     def _confirm_modal(self):
         ''' raises AssertionError if modal is incorrect '''
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'modal not present')
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'modal not present')
         
         _full_profile_link = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
+        
         if "full book info" not in _full_profile_link.text.lower():
             raise AssertionError("Not on a Book Modal.")
      
@@ -55,8 +55,6 @@ class BookModal:
         ''' clicks the recommend button on the book modal '''
         self._confirm_modal()
         
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'modal not present')
-        
         _recommend_button = self._webd_wrap._driver.find_element_by_class_name("l-230px").find_element_by_xpath("div/div/ul/li[3]/a")
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _recommend_button)
         
@@ -73,11 +71,8 @@ class BookModal:
         ''' returns the title of the book '''
         self._confirm_modal()
         
-        self._webd_wrap.wait.until(EC.title_contains("Zola"))
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, '/html/body/div[4]')), 'modal not present')
         time.sleep(1)
         _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
-        print _elt.text
         return _elt.text
     
     def choose_wishlist(self):

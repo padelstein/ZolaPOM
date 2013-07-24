@@ -31,6 +31,7 @@ class WebDriverWrapper:
         self._driver.implicitly_wait(10)
         self.wait = WebDriverWait(self._driver, 10)
         self._driver.get(self._authUrl)
+        # chrome doesn't like going straight into the test from the authorization url so we have to reload with the normal url
         self._driver.get(self._baseUrl)
         
     def go_to_zola(self):

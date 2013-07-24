@@ -4,14 +4,12 @@ Created on Jul 1, 2013
 @author: padelstein
 '''
 
-from selenium import webdriver #imports selenium
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait # available since 2.4.0
 from selenium.webdriver.support import expected_conditions as EC # available since 2.26.0
 from selenium.webdriver.common.action_chains import ActionChains
-
 from robot.libraries.BuiltIn import BuiltIn
 
+import time
 import random
 
 class SignUp:
@@ -21,11 +19,19 @@ class SignUp:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def confirm_page(self):
+        
+        _actual_url = self._webd_wrap._driver.current_url
+        _url = 'https://zolaqc.com/signup'
+        
+        if not _actual_url.startswith(_url):
+            raise AssertionError("Not on Sign Up page.") 
+        
     ########################################################################
     ########################################################################
         
     def submit_new_member_info(self):
-        
+        self.confirm_page()
         _email = 'jay+' + str( random.randint(0, 100000000) ) + '@zolabooks.com'
         
         self.register_email(_email)
