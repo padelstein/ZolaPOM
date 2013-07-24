@@ -1,6 +1,10 @@
 *** Settings ***
 Test Setup        WebDriverWrapper.Open Chrome
+<<<<<<< HEAD
 Test Teardown     WebDriverWrapper.Close The Browser
+=======
+Test Teardown     WebDriverWrapper.Close the Browser
+>>>>>>> 1bab99a1a9461ef5be550c45c797b036fd0dd5ca
 Library           ../../POMtesting/page_objects/WebDriverWrapper.py
 Library           ../../POMtesting/page_objects/UserProfile.py
 Library           ../../POMtesting/page_objects/SignUp.py

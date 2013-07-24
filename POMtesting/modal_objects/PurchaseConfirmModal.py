@@ -28,21 +28,21 @@ class PurchaseConfirmModal:
     ########################################################################
         
     def click_receive_emails(self):
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.XPATH, "/html/body/div[4]")), 'Purchase Confirm Modal not present.')
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, "web-purchase")), 'Purchase Confirm Modal not present.')
         
         _receive_emails = self._webd_wrap._driver.find_element_by_id('receive_author_emails')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _receive_emails)
+        time.sleep(1)
         
     def click_buy(self):
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, "web-purchase")), 'Purchase Confirm Modal not present.')
+        
         _buy_button = self._webd_wrap._driver.find_element_by_class_name("l-modal-section-content").find_element_by_xpath("footer/a[1]")
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _buy_button)
+        time.sleep(1)
         
     def click_done(self):
-        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[4]")), 'modal not present')
-        
-        time.sleep(3)
+        time.sleep(5)
        
         _elt = self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_xpath('footer/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _elt)
-        
-        time.sleep(3)

@@ -19,10 +19,18 @@ class AddCard:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def confirm_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _url = self._webd_wrap._driver.current_url
+        if not _url.startswith('https://zolaqc.com/profile/add-card'):
+            raise AssertionError("Not on the add card page.")
+        
     ########################################################################
     ########################################################################
         
     def submit_new_cc_info(self):
+        self.confirm_page()
+        
         self.enter_cc_number()
         self.click_cc_month_dropdown()
         self.click_cc_year_dropdown()

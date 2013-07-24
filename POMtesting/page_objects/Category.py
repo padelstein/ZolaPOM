@@ -12,6 +12,8 @@ from selenium.webdriver.common.action_chains import ActionChains
 
 from robot.libraries.BuiltIn import BuiltIn
 
+import time
+
 class Category:
     
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
@@ -33,6 +35,12 @@ class Category:
         actual = self._webd_wrap._driver.title
         if actual != _correct_title:
             raise AssertionError("Title should have been %s but was %s" % (_correct_title, actual))
+        
+    def click_my_zola(self):
+        self.confirm_page()
+        
+        time.sleep(2)
+        self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
         
     ########################################################################
     ########################################################################
