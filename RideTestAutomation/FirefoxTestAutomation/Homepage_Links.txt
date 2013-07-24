@@ -39,6 +39,7 @@ Bottom Copyright Icon
 
 Bottom Facebook Icon
     Home.Click Facebook Icon
+    WebDriverWrapper.Switch Window
     WebDriverWrapper.Check Url    https://www.facebook.com/ZolaBooks
 
 Bottom Help
@@ -59,6 +60,8 @@ Bottom Terms
 
 Bottom Twitter
     Home.Click Twitter Icon
+    WebDriverWrapper.Switch Window
+    WebDriverWrapper.Check Url    https://twitter.com/zolabooks
 
 New Releases Bio
     Home.Click Nonfiction New Releases Link    BUSINESS    2
@@ -107,11 +110,27 @@ Side Feed Signed In
     WebDriverWrapper.Check Url    https://zolaqc.profile/
 
 Side More Zola Bestsellers
+    Home.Click More Zola Bestsellers
+    WebDriverWrapper.Check Url    https://zolaqc.com/bestsellers
 
 Side NYT Bestsellers
+    Home.Click Nyt Bestsellers
+    WebDriverWrapper.Check Url    http://www.nytimes.com/best-sellers-books/overview.html
 
 Side People Finder Not Signed In
+    ${EMAIL}=    Register and Sign Out
+    Home.Click People Finder
+    SignInModal.Sign In    ${EMAIL}     password
+    Home.Click People Finder
+    WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
 
 Side People Finder Signed In
+    ${EMAIL}=    Register and Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}     password
+    Home.Click People Finder
+    WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
 
 Side USA Today Bestsellers
+    Home.Click Usa Today Bestsellers
+    WebDriverWrapper.Check Url    http://www.usatoday.com/life/books/best-selling/

@@ -48,3 +48,8 @@ class WebDriverWrapper:
         
     def close_the_browser(self):
         self._driver.quit()
+        
+    def switch_window(self):
+        windows = self._driver.window_handles
+        window = windows[1]
+        self._driver.switch_to_window(window)
