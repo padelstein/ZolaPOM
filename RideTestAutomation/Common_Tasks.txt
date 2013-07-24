@@ -33,3 +33,13 @@ Register and Sign Out
     FindFriends.Click Skip This
     Home.Click Sign Out
     [Return]    ${EMAIL}
+
+Sign In and Click My Zola
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click My Zola
+
+Sign In and Click My Ebooks
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click My Ebooks

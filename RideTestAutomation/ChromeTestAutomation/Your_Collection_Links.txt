@@ -24,44 +24,69 @@ Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
 Library           ../../POMtesting/page_objects/MyEBooks.py
 Resource          ../Common_Tasks.txt
+Library           ../../POMtesting/page_objects/YourCollection.py
 
 *** Test Cases ***
-All Books See All
+All Rated
     Sign In and Click My Ebooks
-    My Ebooks.Click All Books See All
+    MyEbooks.Click All Books See All
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click All Rated
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_rated/
 
-Purchased See All
+Edit Devices
     Sign In and Click My Ebooks
-    My Ebooks.Click Purchased See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/purchased/
-
-Wishlist See All
-    Sign In and Click My Ebooks
-    My Ebooks.Click Wishlist See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/wishlist/
-
-Lists
-    Sign In and Click My Ebooks
-    MyEbooks.Click Lists
+    MyEbooks.Click All Books See All
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Edit Devices
+
+Favorites
+    Sign In and Click My Ebooks
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Favorites
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/favorites/
+
+Not For Me
+    Sign In and Click My Ebooks
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Not For Me
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/not_for_me/
 
 Preordered
     Sign In and Click My Ebooks
-    MyEbooks.Click Preordered
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Preordered
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/preordered/
+
+Private Books
+    Sign In and Click My Ebooks
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Private Books
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/private_books/
 
 Purchased
     Sign In and Click My Ebooks
-    MyEbooks.Click Purchased
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Purchased
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/purchased/
 
-Rated
+View All
     Sign In and Click My Ebooks
-    MyEbooks.Click Rated
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click All Rated
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_rated/
+    YourCollection.Click View All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
 
-Want To Read
+Wishlist
     Sign In and Click My Ebooks
-    MyEbooks.Click Want To Read
+    MyEbooks.Click All Books See All
+    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Click Wishlist
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/wishlist/

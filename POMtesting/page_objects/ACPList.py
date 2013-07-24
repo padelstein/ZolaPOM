@@ -63,12 +63,9 @@ class ACPList:
     ########################################################################
         
     def confirm_bookseller_page(self):
-        time.sleep(2)
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'author')), 'ACP list not present')
         bookstore_button = self._webd_wrap._driver.find_element_by_class_name("author").find_element_by_xpath("a/div/img")
-        #bookstore_button = driver.find_element_by_xpath("/html/body/div[3]/div/div[3]/div/section/div/a/div/img")
-        #note: line 79 is flaky; it is more robust than the commented out line (80) but doesn't always work
         if bookstore_button is None: raise Exception('bookstore button not found')
-        element_to_hover_over =  bookstore_button
-        hover = ActionChains(self._webd_wrap._driver).move_to_element(element_to_hover_over)
+        hover = ActionChains(self._webd_wrap._driver).move_to_element(bookstore_button)
         hover.perform()
         self._webd_wrap._driver.execute_script('$(arguments[0]).click()', bookstore_button)
