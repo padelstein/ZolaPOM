@@ -32,7 +32,37 @@ class MyEBooks:
         
         time.sleep(2)
         self._webd_wrap._driver.find_element_by_id('h-user-personalized-toolbar').find_element_by_xpath('div/a').click()
-            
+    
+    ################################################################################################################
+    #################################LINKS##########################################################################
+    ################################################################################################################
+    
+    def click_all_books_see_all(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/section[2]/header[4]/a").click()
+  
+    def click_purchased_see_all(self):  
+        self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/section[2]/header[3]/a').click()
         
-    ########################################################################
-    ########################################################################
+    def click_wishlist_see_all(self):
+        self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/section[2]/header[2]/a').click()    
+      
+#     ################################################################################################################
+#     #####################################TOP MENU LINKS#############################################################
+#     ################################################################################################################
+     
+    def click_want_to_read(self):
+        self._webd_wrap._driver.find_element_by_class_name('ui-bucket-header').find_element_by_xpath('li/a').click()
+         
+    def click_rated(self):
+        self._webd_wrap._driver.find_element_by_class_name('ui-bucket-header').find_element_by_xpath('li[2]/a').click()
+         
+          
+    def click_purchased(self):
+        self._webd_wrap._driver.find_element_by_class_name('ui-bucket-header').find_element_by_xpath('li[3]/a').click()
+                
+    def click_preordered(self):
+        self._webd_wrap._driver.find_element_by_class_name('ui-bucket-header').find_element_by_xpath('li[4]/a').click()
+
+      
+    def click_lists(self):
+        self._webd_wrap._driver.find_element_by_class_name('ui-bucket-header').find_element_by_xpath('li[5]/a').click()

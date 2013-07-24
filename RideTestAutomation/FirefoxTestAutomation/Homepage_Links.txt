@@ -1,0 +1,117 @@
+*** Settings ***
+Library           ../../POMtesting/page_objects/WebDriverWrapper.py
+Library           ../../POMtesting/page_objects/UserProfile.py
+Library           ../../POMtesting/page_objects/SignUp.py
+Library           ../../POMtesting/page_objects/MyZola.py
+Library           ../../POMtesting/page_objects/Home.py
+Library           ../../POMtesting/page_objects/Category.py
+Library           ../../POMtesting/page_objects/Booksellers.py
+Library           ../../POMtesting/page_objects/BooksellerProfile.py
+Library           ../../POMtesting/page_objects/Book.py
+Library           ../../POMtesting/page_objects/Bestsellers.py
+Library           ../../POMtesting/page_objects/AddCard.py
+Library           ../../POMtesting/page_objects/ACPProfile.py
+Library           ../../POMtesting/page_objects/ACPList.py
+Library           ../../POMtesting/modal_objects/ACPModal.py
+Library           ../../POMtesting/modal_objects/BookModal.py
+Library           ../../POMtesting/modal_objects/BooksellerModal.py
+Library           ../../POMtesting/modal_objects/MessageModal.py
+Library           ../../POMtesting/modal_objects/PledgeModal.py
+Library           ../../POMtesting/modal_objects/PurchaseConfirmModal.py
+Library           ../../POMtesting/modal_objects/RecommendModal.py
+Library           ../../POMtesting/modal_objects/RecommendModal.py
+Library           ../../POMtesting/modal_objects/SignInModal.py
+Library           ../../POMtesting/modal_objects/UserModal.py
+Library           ../../POMtesting/page_objects/MyEBooks.py
+Resource          ../Common_Tasks.txt
+
+*** Test Cases ***
+Bottom About Zola
+    Home.Click Bottom About Zola
+    WebDriverWrapper.Check Url    http://news.zolabooks.com/welcome-to-zola-the-future-of-ebooks/#more-188
+
+Bottom Contact Us
+    Home.Click Contact Us
+
+Bottom Copyright Icon
+    Home.Click Copyright Icon
+    WebDriverWrapper.Check Url    https://zolaqc.com
+
+Bottom Facebook Icon
+    Home.Click Facebook Icon
+    WebDriverWrapper.Check Url    https://www.facebook.com/ZolaBooks
+
+Bottom Help
+    Home.Click Help
+    WebDriverWrapper.Check Url    http://about.zolabooks.com/help/
+
+Bottom News
+    Home.Click News
+    WebDriverWrapper.Check Url    http://news.zolabooks.com/
+
+Bottom Privacy
+    Home.Click Privacy
+    WebDriverWrapper.Check Url    http://about.zolabooks.com/privacy/
+
+Bottom Terms
+    Home.Click Terms
+    WebDriverWrapper.Check Url    http://about.zolabooks.com/terms/
+
+Bottom Twitter
+    Home.Click Twitter Icon
+
+New Releases Bio
+    Home.Click Nonfiction New Releases Link    BUSINESS    2
+    Home.Click Nonfiction New Releases Link    BIOGRAPHY & MEMOIR    1
+
+New Releases Business
+    Home.Click Nonfiction New Releases Link    BUSINESS    2
+
+New Releases Fiction
+    Home.Click Fiction New Releases Link    ROMANCE    2
+    Home.Click Fiction New Releases Link    FICTION    1
+
+New Releases History
+    Home.Click Nonfiction New Releases Link    HISTORY    5
+
+New Releases Romance
+    Home.Click Fiction New Releases Link    ROMANCE    2
+
+New Releases Sci Fi
+    Home.Click Fiction New Releases Link    SCIENCE FICTION & FANTASY    4
+
+New Releases Science
+    Home.Click Nonfiction New Releases Link    SCIENCE AND TECHNOLOGY    4
+
+New Releases Self Help
+    Home.Click Nonfiction New Releases Link    SELF-HELP    3
+
+New Releases Thrillers
+    Home.Click Fiction New Releases Link    THRILLERS    3
+
+New Releases YA
+    Home.Click Fiction New Releases Link    YOUNG ADULT    5
+
+Side Feed Not Signed In
+    ${EMAIL}=    Register and Sign Out
+    Home.Click The Feed
+    SignInModal.Sign In    ${EMAIL}    password
+    Home.Click The Feed
+    WebDriverWrapper.Check Url    https://zolaqc.profile/
+
+Side Feed Signed In
+    ${EMAIL}=    Register and Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
+    Home.Click The Feed
+    WebDriverWrapper.Check Url    https://zolaqc.profile/
+
+Side More Zola Bestsellers
+
+Side NYT Bestsellers
+
+Side People Finder Not Signed In
+
+Side People Finder Signed In
+
+Side USA Today Bestsellers

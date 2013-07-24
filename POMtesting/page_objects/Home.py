@@ -77,7 +77,7 @@ class Home:
     
     
     ##############################################################################################################
-    ####################################LINKS#####################################################################
+    ####################################BOTTOM LINKS#####################################################################
     ##############################################################################################################
     
     def click_bottom_about_zola(self):
@@ -136,6 +136,25 @@ class Home:
 
         if _active_tab != category:
             raise AssertionError('the correct tab is not selected')
+        
+    ##############################################################################################################
+    ####################################SIDE LINKS################################################################
+    ##############################################################################################################
+        
+    def click_more_zola_bestsellers(self):
+        self._webd_wrap._driver.find_element_by_id("best-sellers").find_element_by_xpath("p/a").click()  
+        
+    def click_nyt_bestsellers(self):
+        self._webd_wrap._driver.find_element_by_id("best-sellers").find_element_by_xpath("p[2]/a").click()
+        
+    def click_usa_today_bestsellers(self):  
+        self._webd_wrap._driver.find_element_by_id("best-sellers").find_element_by_xpath("p[3]/a").click()
+        
+    def click_the_feed(self):
+        self._webd_wrap._driver.find_element_by_class_name("margin-bottom-50px").find_element_by_xpath("a/h2").click()
+        
+    def click_people_finder(self):
+        self._webd_wrap._driver.find_element_by_id("people-finder").find_element_by_xpath("a/img").click()
                  
         
     

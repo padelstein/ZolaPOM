@@ -179,3 +179,56 @@ class MyZola:
         
         if _actual_name.lower() != _name.lower():
             raise AssertionError("First message should have been from %s but was %s" % (_name.lower(), _actual_name.lower()))
+
+
+    #############################################################################################################
+    ###################################LINKS#####################################################################
+    #############################################################################################################
+    
+    def click_followers_tab(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a/div/span[2]").click()
+        #self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/a/div/span[2]').click()
+   
+        
+    def click_following_tab(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a[2]/div/span[2]").click()
+   
+    
+    def click_collection_tab(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a[3]/span[2]").click()
+   
+    
+    def click_collection_book_link(self):
+        self._webd_wrap._driver.find_element_by_class_name("page").find_element_by_xpath("div/div[2]/a[4]/div/div/img").click()        
+
+        
+    def click_list_tab(self):
+        self._webd_wrap._driver.find_element_by_class_name("l-section-border").find_element_by_xpath("li/a").click()
+        
+    def click_edit_profile(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/section/ul/li/a").click()
+        
+    def click_billing_info(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/section/ul/li[2]/a").click()
+        
+    def click_find_people(self):
+        self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/section/ul/li[3]/a").click()
+        
+    def click_profile_picture(self):
+        self._webd_wrap._driver.find_element_by_class_name("avatar-forced-dimensions").find_element_by_xpath("img").click()
+        
+    def click_messages_tab(self):
+        self._webd_wrap._driver.find_element_by_class_name("list").find_element_by_xpath("li[2]/a").click()
+        
+    def click_starred_tab(self):
+        self._webd_wrap._driver.find_element_by_class_name("list").find_element_by_xpath("li[3]/a").click()
+        
+    def sort_just_me(self):
+        self._webd_wrap._driver.find_element_by_id("dk_container_category").find_element_by_xpath("a").click()
+        self._webd_wrap._driver.find_element_by_class_name("dk_options_inner").find_element_by_xpath("li[2]/a").click()
+        
+    def sort_everything(self):
+        self._webd_wrap._driver.find_element_by_id("dk_container_category").find_element_by_xpath("a").click()
+        self._webd_wrap._driver.find_element_by_class_name("dk_options_inner").find_element_by_xpath("li[2]/a").click()    
+        self._webd_wrap._driver.find_element_by_id("dk_container_category").find_element_by_xpath("a").click()
+        self._webd_wrap._driver.find_element_by_class_name("dk_options_inner").find_element_by_xpath("li[2]/a").click()  

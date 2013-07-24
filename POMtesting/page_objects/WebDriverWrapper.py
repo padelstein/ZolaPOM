@@ -40,5 +40,12 @@ class WebDriverWrapper:
     def open_page(self, path):
         self._driver.get(self._baseUrl + path)
         
+    def check_url(self, url):
+        ''' raises AssertionError if page is incorrect '''
+        _url = self._driver.current_url
+        _title = self._driver.title
+        if not _url.startswith(url):
+            raise AssertionError("Not on correct page.")
+        
     def close_the_browser(self):
         self._driver.quit()
