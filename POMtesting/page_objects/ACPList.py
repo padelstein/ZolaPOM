@@ -65,6 +65,7 @@ class ACPList:
     ########################################################################
         
     def confirm_bookseller_page(self):
+        time.sleep(2)
         bookstore_button = self._webd_wrap._driver.find_element_by_class_name("author").find_element_by_xpath("a/div/img")
         #bookstore_button = driver.find_element_by_xpath("/html/body/div[3]/div/div[3]/div/section/div/a/div/img")
         #note: line 79 is flaky; it is more robust than the commented out line (80) but doesn't always work
