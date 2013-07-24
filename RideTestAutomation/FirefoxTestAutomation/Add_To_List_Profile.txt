@@ -7,11 +7,13 @@ Library           ../../POMtesting/page_objects/Home.py
 Library           ../../POMtesting/page_objects/Category.py
 Library           ../../POMtesting/page_objects/Booksellers.py
 Library           ../../POMtesting/page_objects/BooksellerProfile.py
+Library           ../../POMtesting/page_objects/Book.py
 Library           ../../POMtesting/page_objects/Bestsellers.py
 Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/page_objects/ACPProfile.py
 Library           ../../POMtesting/page_objects/ACPList.py
 Library           ../../POMtesting/modal_objects/ACPModal.py
+Library           ../../POMtesting/page_objects/List.py
 Library           ../../POMtesting/modal_objects/BookModal.py
 Library           ../../POMtesting/modal_objects/BooksellerModal.py
 Library           ../../POMtesting/modal_objects/MessageModal.py
@@ -21,9 +23,7 @@ Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/RecommendModal.py
 Library           ../../POMtesting/modal_objects/SignInModal.py
 Library           ../../POMtesting/modal_objects/UserModal.py
-Library           ../../POMtesting/page_objects/Book.py
 Library           ../../POMtesting/page_objects/MyEBooks.py
-Library           ../../POMtesting/page_objects/FindFriends.py
 Resource          ../Common_Tasks.txt
 
 *** Test Cases ***

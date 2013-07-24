@@ -13,6 +13,7 @@ Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/page_objects/ACPProfile.py
 Library           ../../POMtesting/page_objects/ACPList.py
 Library           ../../POMtesting/modal_objects/ACPModal.py
+Library           ../../POMtesting/page_objects/List.py
 Library           ../../POMtesting/modal_objects/BookModal.py
 Library           ../../POMtesting/modal_objects/BooksellerModal.py
 Library           ../../POMtesting/modal_objects/MessageModal.py
@@ -120,14 +121,14 @@ Side NYT Bestsellers
 Side People Finder Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click People Finder
-    SignInModal.Sign In    ${EMAIL}     password
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Click People Finder
     WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
 
 Side People Finder Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
-    SignInModal.Sign In    ${EMAIL}     password
+    SignInModal.Sign In    ${EMAIL}    password
     Home.Click People Finder
     WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
 
