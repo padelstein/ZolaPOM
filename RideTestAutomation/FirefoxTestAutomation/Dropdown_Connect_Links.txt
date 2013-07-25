@@ -47,6 +47,17 @@ Publishers
     Home.Click on Link    Publishers
     ACPList.Confirm Page    publishers
 
-Friends
+Friends Signed In
+    Home.Click Sign In
+    SignInModal.Sign in
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Friends
+    FindFriends.Confirm Page    David Tennant
+
+Friends Not Signed In
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Friends
+    SignInModal.Sign In
+    Home.Hover Over Connect Dropdown
+    Home.Click On Link
+    FindFriends.Confirm Page    David Tennant
