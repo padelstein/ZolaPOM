@@ -21,10 +21,11 @@ class Bestsellers:
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
         
+        _header = self._webd_wrap._driver.find_element_by_css_selector("div[class='l-full c-bg-white']").find_element_by_xpath('header/h2').text
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith('https://zolaqc.com/bestsellers') or _title != 'Zola Books | Best Sellers | Browse':
+        if not _url.startswith('https://zolaqc.com/bestsellers') or _title != 'Zola Books | Best Sellers | Browse' or _header != 'BESTSELLERS':
             raise AssertionError("Not on the bestsellers page.")     
         
     def click_my_zola(self):

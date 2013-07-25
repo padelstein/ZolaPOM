@@ -39,6 +39,7 @@ Edit Devices
     MyEbooks.Click All Books See All
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
     YourCollection.Click Edit Devices
+    YourCollection.Click Save Devices
 
 Favorites
     Sign In and Click My Ebooks
