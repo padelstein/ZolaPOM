@@ -12,6 +12,7 @@ Library           ../../POMtesting/page_objects/Bestsellers.py
 Library           ../../POMtesting/page_objects/AddCard.py
 Library           ../../POMtesting/page_objects/ACPProfile.py
 Library           ../../POMtesting/page_objects/ACPList.py
+Library           ../../POMtesting/page_objects/YourCollection.py
 Library           ../../POMtesting/modal_objects/ACPModal.py
 Library           ../../POMtesting/page_objects/List.py
 Library           ../../POMtesting/modal_objects/BookModal.py
@@ -135,3 +136,37 @@ Side People Finder Signed In
 Side USA Today Bestsellers
     Home.Click Usa Today Bestsellers
     WebDriverWrapper.Check Url    http://www.usatoday.com/life/books/best-selling/
+
+Wishlist Not Signed In
+    Home.Click Wishlist
+    SignInModal.Sign In
+    YourCollection.Confirm Wishlist Selected
+
+Wishlist Signed In
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click Wishlist
+    YourCollection.Confirm Wishlist Selected
+
+Wishlist No Account
+    Home.Click Wishlist
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    YourCollection.Confirm Wishlist Selected
+
+the Zola Network Not Signed In
+    Home.Click Zola Network
+    SignInModal.Sign In
+    MyZola.Confirm Page    David Tennant
+
+the Zola Network Signed In
+    Home.Click Sign In
+    SignInModal.Sign In
+    Home.Click Zola Network
+    MyZola.Confirm Page    David Tennant
+
+the Zola Network No Account
+    Home.Click Zola Network
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    MyZola.Confirm Page

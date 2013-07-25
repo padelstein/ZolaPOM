@@ -4,6 +4,7 @@ Created on Jul 23, 2013
 @author: emma
 '''
 
+import selenium.common.exceptions as Exceptions
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -21,13 +22,19 @@ class YourCollection:
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
         
-        _header = self._webd_wrap._driver.find_element_by_class_name('title-1').text.lower()
+        try:
+            _header = self._webd_wrap._driver.find_element_by_class_name('title-1').text.lower()
+        except Exceptions.NoSuchElementException:
+            raise AssertionError('Not on Your Collection page')
+        
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith('https://zolaqc.com/collection/list/all_results') or _title != 'Zola Books | Your Collection' or 'your collection' not in _header:
+        if not _url.startswith('https://zolaqc.com/collection/list/') or _title != 'Zola Books | Your Collection' or 'your collection' not in _header:
             raise AssertionError("Not on the Your Collection page.")
         
+    ##################################################################################
+    ##################################################################################
 
     def click_all_rated(self):
         self.confirm_page()
@@ -83,4 +90,19 @@ class YourCollection:
          
     def click_first_book(self):
         self.confirm_page()    
+        
         self._webd_wrap._driver.find_element_by_class_name('trigger-modal-book').find_element_by_xpath('img').click()
+        
+    #################################################################################
+    #################################################################################
+    
+    def confirm_wishlist_selected(self):
+        self.confirm_page()
+
+        _header = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('header/h1').text.lower()            
+        
+        if 'wishlist' not in _header:
+            raise AssertionError("Wishlist not selected")
+        
+        
+        
