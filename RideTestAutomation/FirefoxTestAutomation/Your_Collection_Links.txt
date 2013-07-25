@@ -90,3 +90,9 @@ Wishlist
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
     YourCollection.Click Wishlist
     WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/wishlist/
+
+Open Book Modal
+    Sign In and Click My Ebooks
+    MyEbooks.Click All Books See All
+    YourCollection.Click First Book
+    BookModal.Close Modal

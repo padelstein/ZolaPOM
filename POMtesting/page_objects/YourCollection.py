@@ -18,7 +18,15 @@ class YourCollection:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
-    
+    def confirm_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        
+        _url = self._webd_wrap._driver.current_url
+        _title = self._webd_wrap._driver.title
+        
+        if not _url.startswith('https://zolaqc.com/collection/list/all_results/') or _title != 'Zola Books | Your Collection':
+            raise AssertionError("Not on the Full Collection page.")
+        
     def click_all_rated(self):
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a[6]").click()
     
@@ -46,5 +54,6 @@ class YourCollection:
     def click_view_all(self):
         self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/div[2]/a').click()
          
-#         
-#     def open_book_modal(self):
+    def click_first_book(self):
+        self.confirm_page()    
+        self._webd_wrap._driver.find_element_by_class_name('trigger-modal-book').find_element_by_xpath('img').click()

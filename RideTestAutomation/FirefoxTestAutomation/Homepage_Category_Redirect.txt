@@ -184,7 +184,8 @@ Urban
     BookModal.Close Modal
 
 Young Adult
-    Home.Click Category    Art, Architecture, & Design
-    Category.Page Title Should Be    Zola Books | ebook | Art, Architecture, & Design
+    Home.Click Category    Young Adult
+    Category.Page Title Should Be    Zola Books | Categories
+    Category.
     Category.Click First Book
     BookModal.Close Modal
