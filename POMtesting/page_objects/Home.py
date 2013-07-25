@@ -4,7 +4,6 @@ Created on Jul 1, 2013
 @author: padelstein
 '''
 
-
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
@@ -19,6 +18,15 @@ class Home:
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
         
+    def confirm_page(self):
+        ''' raises assertion error if page is incorrect '''
+        
+        _url = self._webd_wrap._driver.current_url
+        _title = self._webd_wrap._driver.title
+        
+        if not _url != 'https://zolaqc.com' or not _title.startswith('Zola Books | Zola Books:'):
+            raise AssertionError("Not on the home page.")
+
     def click_on_link(self, _link_text):
         ''' clicks on a link with arg1 as the link text '''
         self._webd_wrap._driver.find_element_by_link_text(_link_text).click()
@@ -78,7 +86,18 @@ class Home:
     def click_deals(self):
         ''' clicks the deals link in the nav bar '''
         self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('DEALS').click()
+        
+    def click_about_zola(self):
+        self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('ABOUT ZOLA').click()
     
+    def click_new_releases(self):
+        self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('NEW RELEASES').click()
+        
+    def click_find_great_ebooks(self):
+        self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('FIND GREAT eBOOKS').click()
+
+    def click_home_icon(self):
+        self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('HOME').click()
 
     ##############################################################################################################
     ####################################BOTTOM LINKS##############################################################

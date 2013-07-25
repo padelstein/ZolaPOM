@@ -27,22 +27,41 @@ Library           ../POMtesting/modal_objects/SignInModal.py
 Library           ../POMtesting/modal_objects/UserModal.py
 Library           ../POMtesting/page_objects/MyEBooks.py
 Library           ../POMtesting/page_objects/FindFriends.py
+Resource          ../Common_Tasks.txt
 
-*** Keywords ***
-Register and Sign Out
+*** Test Cases ***
+Bestsellers
+    Home.Click Bestsellers
+    Bestsellers.Confirm Page
+
+My eBooks
     Home.Click Sign In
-    SignInModal.Click Sign Up
-    ${EMAIL}=    SignUp.Submit New Member Info
-    FindFriends.Click Skip This
-    Home.Click Sign Out
-    [Return]    ${EMAIL}
+    SignInModal.Sign In
+    Home.Click My eBooks
+    MyEBooks.Confirm Page
 
-Sign In and Click My Zola
+My Zola
     Home.Click Sign In
     SignInModal.Sign In
     Home.Click My Zola
+    MyZola.Confirm Page    David Tennant
 
-Sign In and Click My Ebooks
-    Home.Click Sign In
-    SignInModal.Sign In
-    Home.Click My Ebooks
+Deals
+    Home.Click Deals
+    List.Confirm Daily Deals
+
+About Zola
+    Home.Click About Zola
+    WebDriverWrapper.Check Url    http://news.zolabooks.com/tag/new-publisher/
+
+New Releases
+    Home.Click New Releases
+    NewReleases.Confirm Page
+
+Find Great eBooks
+    Home.Click Find Great eBooks
+    Recommendations.Confirm Page
+
+House Icon
+    Home.Click Home Icon
+    Home.Confirm Page
