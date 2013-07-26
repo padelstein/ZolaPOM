@@ -37,7 +37,7 @@ Bottom Contact Us
 
 Bottom Copyright Icon
     Home.Click Copyright Icon
-    WebDriverWrapper.Check Url    https://zolaqc.com
+    Home.Confirm Page
 
 Bottom Facebook Icon
     Home.Click Facebook Icon
@@ -102,14 +102,14 @@ Side Feed Not Signed In
     Home.Click The Feed
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click The Feed
-    WebDriverWrapper.Check Url    https://zolaqc.profile/
+    MyZola.Confirm Page
 
 Side Feed Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click The Feed
-    WebDriverWrapper.Check Url    https://zolaqc.profile/
+    MyZola.Confirm Page
 
 Side More Zola Bestsellers
     Home.Click More Zola Bestsellers
@@ -124,18 +124,22 @@ Side People Finder Not Signed In
     Home.Click People Finder
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click People Finder
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
+    FindFriend.Confirm Page
 
 Side People Finder Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click People Finder
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
+    FindFriends.Confirm Page
 
 Side USA Today Bestsellers
     Home.Click Usa Today Bestsellers
     WebDriverWrapper.Check Url    http://www.usatoday.com/life/books/best-selling/
+
+Zola Copyright
+    Home.Click Copyright
+    WebDriverWrapper.Check Url    https://zolaqc.com/terms#
 
 Wishlist Not Signed In
     Home.Click Wishlist
