@@ -34,12 +34,13 @@ No Account
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
+    BookModal.Click Recommend
     SignInModal.Click Sign Up
-    SignUp.Submit New Member Info
-    BookModal.Close Modal
-    BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    ${EMAIL}=    SignUp.Submit New Member Info
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
+    Bestsellers.Click My Zola
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Signed In
     ${EMAIL}=    Register and Sign Out
@@ -48,18 +49,20 @@ Signed In
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
-    BookModal.Close Modal
+    BookModal.Click Recommend
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
     BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
 
 Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Bestsellers
     Bestsellers.Click First Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
+    BookModal.Click Recommend
     SignInModal.Sign In    ${EMAIL}    password
-    BookModal.Close Modal
+    RecommendModal.Submit Recommend
+    RecommendModal.Close Modal
     BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    MyZola.First Activity Should be Recommended Book    ${BOOK_TITLE}
