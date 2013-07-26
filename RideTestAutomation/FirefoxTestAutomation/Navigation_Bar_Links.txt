@@ -65,3 +65,5 @@ Find Great eBooks
 House Icon
     Home.Click Home Icon
     Home.Confirm Page
+
+Zola Icon

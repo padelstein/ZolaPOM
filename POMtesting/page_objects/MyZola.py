@@ -25,7 +25,7 @@ class MyZola:
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        # enables option to test for a specific username of just a general My Zola page
+        # enables option to test for a specific username or just a general My Zola page
         if _name is None:
             _actual_title = _title
         else:

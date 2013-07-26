@@ -46,6 +46,11 @@ class Home:
     def click_category(self, _category):
         self._webd_wrap._driver.find_element_by_id('s-browse-by-category').find_element_by_link_text(_category).click()
         
+    def click_Zola_Network(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/a').click()
+        
     ########################################################################
     #######################NAVIGATION BAR LINKS#############################
     ########################################################################
@@ -61,6 +66,12 @@ class Home:
         _element = self._webd_wrap._driver.find_element_by_id("h-connect").find_element_by_xpath("h2/a")
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
+        
+    def click_wishlist(self):
+        self.confirm_page()
+        
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'h-user-toolbar')))
+        self._webd_wrap._driver.find_element_by_id('h-wishlist-link').find_element_by_xpath('a').click()
         
     def click_bestsellers(self):
         ''' clicks the link to the bestsellers list '''
