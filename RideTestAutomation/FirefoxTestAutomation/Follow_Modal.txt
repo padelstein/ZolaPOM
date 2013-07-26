@@ -31,35 +31,38 @@ Resource          ../Common_Tasks.txt
 
 *** Test Cases ***
 No Account
-    Home.Click Bestsellers
-    Bestsellers.Click First Book
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPLIst.Click First ACP
+    ${NAME}=    ACPModal.Get Name
+    ACPModal.Click Follow
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    BookModal.Close Modal
-    BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    ACPModal.Close Modal
+    ACPList.Click My Zola
+    MyZola.First Activity Should be Follow
 
 Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
-    Home.Click Bestsellers
-    Bestsellers.Click First Book
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
-    BookModal.Close Modal
-    BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Click First ACP
+    ${NAME}=    ACPModal.Get Name
+    ACPModal.Click Follow
+    ACPModal.Close Modal
+    ACPList.Click My Zola
+    MyZola.First Activity Should be Follow
 
 Not Signed In
     ${EMAIL}=    Register and Sign Out
-    Home.Click Bestsellers
-    Bestsellers.Click First Book
-    ${BOOK_TITLE}=    BookModal.Get Book Title
-    BookModal.Rate
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Authors
+    ACPList.Click First ACP
+    ${NAME}=    ACPModal.Get Name
+    ACPModal.Click Follow
     SignInModal.Sign In    ${EMAIL}    password
-    BookModal.Close Modal
-    BestSellers.Click My Zola
-    MyZola.First Activity Should be Rated Book    ${BOOK_TITLE}
+    ACPModal.Close Modal
+    ACPList.Click My Zola
+    MyZola.First Activity Should be Follow
