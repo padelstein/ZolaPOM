@@ -22,6 +22,9 @@ class BookModal:
         ''' raises AssertionError if modal is incorrect '''
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'modal not present')
         
+        # waits until full profile button is visible
+        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "footer[class='l-section-primary l-section-no-border']")), 'full book button')
+        
         _full_profile_link = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
         print '###' + _full_profile_link.text + '###'
         

@@ -32,7 +32,7 @@ Resource          ../Common_Tasks.txt
 *** Test Cases ***
 No Account
     Home.Click Bestsellers
-    Bestsellers.Click First Book
+    Bestsellers.Click Second Book
     ${BOOK_TITLE}=    BookModal.Get Book Title
     BookModal.Rate
     SignInModal.Click Sign Up
