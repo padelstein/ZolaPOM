@@ -49,10 +49,8 @@ Business & Economics
     BookModal.Close Modal
 
 Children
-    Home.Click Category    Art, Architecture, & Design
-    Category.Page Title Should Be    Zola Books | ebook | Art, Architecture, & Design
-    Category.Click First Book
-    BookModal.Close Modal
+    Home.Click Category    Children
+    Category.Confirm Children Page
 
 Classics & Poetry
     Home.Click Category    Classics & Poetry
@@ -187,7 +185,5 @@ Urban
     BookModal.Close Modal
 
 Young Adult
-    Home.Click Category    Art, Architecture, & Design
-    Category.Page Title Should Be    Zola Books | ebook | Art, Architecture, & Design
-    Category.Click First Book
-    BookModal.Close Modal
+    Home.Click Category    Young Adult
+    Category.Confirm YA Page

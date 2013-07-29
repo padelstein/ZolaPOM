@@ -183,6 +183,7 @@ Zola Exclusives
 
 All Categories
     Home.Click All Categories
+    Category.Confirm All Categories Page
 
 See All Fiction New Releases
     Home.Click See All Fiction

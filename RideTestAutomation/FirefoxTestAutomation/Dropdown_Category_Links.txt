@@ -46,6 +46,9 @@ Business & Economics
     Category.Page Title Should Be    Zola Books | ebook | Business & Economics
 
 Children
+    Home.Hover Over Category Dropdown
+    Home.Click on Link    Children
+    Category.Confirm Children Page
 
 Classics & Poetry
     Home.Hover Over Category Dropdown
@@ -158,3 +161,6 @@ Urban
     Category.Page Title Should Be    Zola Books | ebook | Urban
 
 Young Adult
+    Home.Hover Over Category Dropdown
+    Home.Click on Link    Young Adult
+    Category.Confirm YA page
