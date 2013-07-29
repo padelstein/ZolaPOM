@@ -48,8 +48,8 @@ Signed In
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click Bestsellers
-    ${BOOK_TITLE}=    BestSellers.Get First Book Title
-    BestSellers.Click Buy First Book
+    ${BOOK_TITLE}=    BestSellers.Get Eighth Book Title
+    BestSellers.Click Buy Eighth Book
     AddCard.Submit New CC Info
     PurchaseConfirmModal.Click Receive Emails
     PurchaseConfirmModal.Click Buy

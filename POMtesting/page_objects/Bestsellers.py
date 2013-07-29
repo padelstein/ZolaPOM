@@ -42,10 +42,30 @@ class Bestsellers:
         
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/div/a[1]').click()
         
+    def click_second_book(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[3]/div/div/a[1]').click()
+        
+    def click_eighth_book(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[9]/div/div/a[1]').click()
+        
     def click_buy_first_book(self):
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/div/div[1]/a').click()
+        
+    def click_buy_second_book(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[3]/div/div/div[1]/a').click()
+        
+    def click_buy_eighth_book(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[9]/div/div/div[1]/a').click()
         
     def rate_first_book(self):
         self.confirm_page()
@@ -57,9 +77,22 @@ class Bestsellers:
     def get_first_book_title(self):
         self.confirm_page()
         
-        #time.sleep(2) # by using visibility instead of presence in the line below I think we can avoid using this sleep
         self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'l-main-primary')))
         _book_title = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[2]/div/div/a')
+        return _book_title.text
+    
+    def get_second_book_title(self):
+        self.confirm_page()
+        
+        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'l-main-primary')))
+        _book_title = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[3]/div/div/a')
+        return _book_title.text
+    
+    def get_eighth_book_title(self):
+        self.confirm_page()
+        
+        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CLASS_NAME, 'l-main-primary')))
+        _book_title = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('section[9]/div/div/a')
         return _book_title.text
         
     

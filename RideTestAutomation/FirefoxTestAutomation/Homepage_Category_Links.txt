@@ -117,7 +117,7 @@ Humor & Entertainment
 Literary Fiction
     Home.Click Category    Literary Fiction
     Category.Page Title Should Be    Zola Books | ebook | Literary Fiction
-    Category.Click First Book
+    Category.Click Second Book
     BookModal.Close Modal
 
 Non-Fiction
