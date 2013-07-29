@@ -176,3 +176,22 @@ the Zola Network No Account
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
     MyZola.Confirm Page
+
+User in the Feed
+    Home.Click First User in Feed
+    UserProfile.Confirm Page
+
+Zola Exclusives
+    Home.Click Zola Exclusives
+    WebDriverWrapper.Check URL    https://zolabooks.com/profile/zolabooks
+
+All Categories
+    Home.Click All Categories
+
+See All Fiction New Releases
+    Home.Click See All Fiction
+    NewReleases.Confirm Page
+
+See All Non Fiction New Releases
+    Home.Click See All Non Fiction
+    NewReleases.Confirm Page

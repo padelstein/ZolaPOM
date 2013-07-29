@@ -21,10 +21,12 @@ class Home:
     def confirm_page(self):
         ''' raises assertion error if page is incorrect '''
         
-        _url = self._webd_wrap._driver.current_url
+        # checks for the feed webelement to confirm this is the hompage
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'feed')))
+        
         _title = self._webd_wrap._driver.title
         
-        if not _url != 'https://zolaqc.com' or not _title.startswith('Zola Books | Zola Books:'):
+        if not _title.startswith('Zola Books | Zola Books:'):
             raise AssertionError("Not on the home page.")
 
     def click_on_link(self, _link_text):
@@ -46,10 +48,20 @@ class Home:
     def click_category(self, _category):
         self._webd_wrap._driver.find_element_by_id('s-browse-by-category').find_element_by_link_text(_category).click()
         
-    def click_Zola_Network(self):
+    def click_zola_network(self):
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/a').click()
+        
+    def click_see_all_fiction(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_elements_by_css_selector("section[class='l-section-carousel c-bg-tan']")[0].find_element_by_xpath('div[1]/div[2]/a').click()
+        
+    def click_see_all_non_fiction(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_elements_by_css_selector("section[class='l-section-carousel c-bg-tan']")[1].find_element_by_xpath('div[1]/div[2]/a').click()
         
     ########################################################################
     #######################NAVIGATION BAR LINKS#############################
@@ -189,6 +201,37 @@ class Home:
         
     def click_people_finder(self):
         self._webd_wrap._driver.find_element_by_id("people-finder").find_element_by_xpath("a/img").click()
-                 
         
+    def click_first_user_in_feed(self):
+        self.confirm_page()
+         
+        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/ul/li[1]').find_element_by_class_name('avatar-forced-dimensions').click()      
+     
+    def click_zola_exclusives(self):
+        self.confirm_page()
+         
+        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/div').find_elements_by_class_name('other-categories')[0].find_element_by_xpath('a').click()            
+                 
+    def click_all_categories(self):    
+        self.confirm_page()
+         
+        self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('section/div').find_elements_by_class_name('other-categories')[1].find_element_by_xpath('a').click()         
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
+                 
     
