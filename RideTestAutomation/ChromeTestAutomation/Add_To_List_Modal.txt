@@ -36,7 +36,6 @@ No Account
     BookModal.Click Add To List Nsi
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    BookModal.Click Add To List
     BookModal.Choose Wishlist
     BookModal.Close Modal
     Home.Click My Zola

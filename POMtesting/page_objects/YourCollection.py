@@ -96,13 +96,13 @@ class YourCollection:
     #################################################################################
     #################################################################################
     
-    def confirm_wishlist_selected(self):
+    def confirm_filter_selected(self, _filter):
         self.confirm_page()
 
         _header = self._webd_wrap._driver.find_element_by_class_name('l-main-primary').find_element_by_xpath('header/h1').text.lower()            
         
-        if 'wishlist' not in _header:
-            raise AssertionError("Wishlist not selected")
+        if _filter not in _header:
+            raise AssertionError("Correct filter not selected")
         
         
         
