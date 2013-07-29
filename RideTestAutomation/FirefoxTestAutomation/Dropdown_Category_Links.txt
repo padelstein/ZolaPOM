@@ -124,8 +124,8 @@ Reference
 
 Religion & Spirituality
     Home.Hover Over Category Dropdown
-    Home.Click on Link    Art, Architecture, & Design
-    Category.Page Title Should Be    Zola Books | ebook | Art, Architecture, & Design
+    Home.Click on Link    Religion & Spirituality
+    Category.Page Title Should Be    Zola Books | ebook | Religion & Spirituality
 
 Romance & Erotica
     Home.Hover Over Category Dropdown

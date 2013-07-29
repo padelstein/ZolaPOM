@@ -38,12 +38,12 @@ Billing Info
 Collection Book Link
     Sign In and Click My Zola
     My Zola.Click Collection Book Link
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection
+    MyEbooks.Confirm Page
 
 Collection Tab
     Sign In and Click My Zola
     MyZola.Click Collection Tab
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection
+    MyEbooks.Confirm Page
 
 Edit Profile
     Sign In and Click My Zola
@@ -53,7 +53,7 @@ Edit Profile
 Find People
     Sign In and Click My Zola
     MyZola.Click Find People
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/people/finder
+    FindFriends.Confirm Page
 
 Followers Tab
     Sign In and Click My Zola
@@ -82,7 +82,7 @@ Profile Picture
     Sign In and Click My Zola
     MyZola.Click Profile Picture
     UserModal.Close Modal
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile
+    MyZola.Confirm Page
 
 Sort Everything
     Sign In and Click My Zola

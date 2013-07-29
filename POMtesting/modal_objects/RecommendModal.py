@@ -39,8 +39,6 @@ class RecommendModal():
         self.enter_message()
         self.submit()
         
-        # confirms the modal is gone
-        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
        
     def enter_email(self):
         _recommend_email_form = self._webd_wrap._driver.find_element_by_id('recommend-modal').find_element_by_id('recommend-email-form')

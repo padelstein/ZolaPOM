@@ -103,19 +103,17 @@ Side Feed Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click The Feed
     SignInModal.Sign In    ${EMAIL}    password
-    Home.Click The Feed
     MyZola.Confirm Page
 
 Side Feed Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
-    Home.Click The Feed
     MyZola.Confirm Page
 
 Side More Zola Bestsellers
     Home.Click More Zola Bestsellers
-    WebDriverWrapper.Check Url    https://zolaqc.com/bestsellers
+    Bestsellers.Confirm Page
 
 Side NYT Bestsellers
     Home.Click Nyt Bestsellers
@@ -125,14 +123,12 @@ Side People Finder Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click People Finder
     SignInModal.Sign In    ${EMAIL}    password
-    Home.Click People Finder
     FindFriend.Confirm Page
 
 Side People Finder Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
-    Home.Click People Finder
     FindFriends.Confirm Page
 
 Side USA Today Bestsellers
@@ -146,19 +142,19 @@ Zola Copyright
 Wishlist Not Signed In
     Home.Click Wishlist
     SignInModal.Sign In
-    YourCollection.Confirm Wishlist Selected
+    YourCollection.Confirm Filter Selected    wishlist
 
 Wishlist Signed In
     Home.Click Sign In
     SignInModal.Sign In
     Home.Click Wishlist
-    YourCollection.Confirm Wishlist Selected
+    YourCollection.Confirm Filter Selected    wishlist
 
 Wishlist No Account
     Home.Click Wishlist
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    YourCollection.Confirm Wishlist Selected
+    YourCollection.Confirm Filter Selected    wishlist
 
 the Zola Network Not Signed In
     Home.Click Zola Network

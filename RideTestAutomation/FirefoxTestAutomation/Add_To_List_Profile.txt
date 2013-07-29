@@ -37,7 +37,6 @@ No Account
     Book.Click Add To List Nsi
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    Book.Click Add To List
     Book.Choose Wishlist
     Home.Click My Zola
     MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
