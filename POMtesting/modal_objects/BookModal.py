@@ -103,7 +103,6 @@ class BookModal:
         self._confirm_modal()
         
         add_to_list = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/a')
-        #add_to_list = self._driver.find_element_by_class_name('l-230px').find_element_by_xpath('div/div/section[2]/div/div/ul/li[2]/div/a')    
         hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list)
         hover.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list)
