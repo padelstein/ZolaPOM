@@ -4,6 +4,7 @@ Library           ../POMtesting/page_objects/ACPList.py
 Library           ../POMtesting/page_objects/ACPProfile.py
 Library           ../POMtesting/page_objects/AddCard.py
 Library           ../POMtesting/page_objects/Bestsellers.py
+Library           ../POMtesting/page_objects/BillingInfo.py
 Library           ../POMtesting/page_objects/Book.py
 Library           ../POMtesting/page_objects/BooksellerProfile.py
 Library           ../POMtesting/page_objects/Booksellers.py
@@ -49,6 +50,8 @@ Business & Economics
     BookModal.Close Modal
 
 Children
+    Home.Click Category    Children
+    Category.Confirm Children Page
 
 Classics & Poetry
     Home.Click Category    Classics & Poetry
@@ -113,7 +116,7 @@ Humor & Entertainment
 Literary Fiction
     Home.Click Category    Literary Fiction
     Category.Page Title Should Be    Zola Books | ebook | Literary Fiction
-    Category.Click First Book
+    Category.Click Second Book
     BookModal.Close Modal
 
 Non-Fiction
@@ -183,3 +186,5 @@ Urban
     BookModal.Close Modal
 
 Young Adult
+    Home.Click Category    Young Adult
+    Category.Confirm YA Page

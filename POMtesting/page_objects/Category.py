@@ -60,8 +60,6 @@ class Category:
     ########################################################################
     
     def confirm_all_categories_page(self):
-        time.sleep(3)
-        print self._webd_wrap._driver.find_element_by_class_name('header-category-1').text
         
         self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'ALL'))
         

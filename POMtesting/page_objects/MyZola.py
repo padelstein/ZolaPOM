@@ -49,8 +49,8 @@ class MyZola:
     def click_sign_out(self):
         ''' clicks the sign out link '''
         self.confirm_page()
-    
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'h-user-toolbar')))    
+        
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
 
         
@@ -115,6 +115,7 @@ class MyZola:
             actual = self._webd_wrap._driver.find_element_by_id('activity-container').find_element_by_xpath('section[1]/div[2]/ul/li/a[2]').text
         except Exceptions.NoSuchElementException:
             raise AssertionError("No activity in the feed")
+        
         if actual != _book_title:
             raise AssertionError("Recommended book should have been %s but was %s" % (_book_title, actual))
         

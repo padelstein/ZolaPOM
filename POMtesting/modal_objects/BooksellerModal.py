@@ -36,7 +36,6 @@ class BooksellerModal:
     def modal_should_be_present(self):
         ''' raises AssertionError if modal is not displayed '''
         self.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "l-570px")), 'modal not present')
-        return self
     
     def click_full_profile(self):
         self._confirm_modal()

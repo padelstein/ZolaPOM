@@ -4,6 +4,7 @@ Library           ../POMtesting/page_objects/ACPList.py
 Library           ../POMtesting/page_objects/ACPProfile.py
 Library           ../POMtesting/page_objects/AddCard.py
 Library           ../POMtesting/page_objects/Bestsellers.py
+Library           ../POMtesting/page_objects/BillingInfo.py
 Library           ../POMtesting/page_objects/Book.py
 Library           ../POMtesting/page_objects/BooksellerProfile.py
 Library           ../POMtesting/page_objects/Booksellers.py
@@ -33,7 +34,7 @@ Resource          ../Common_Tasks.txt
 All Books See All
     Sign In and Click My Ebooks
     My Ebooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
 
 Purchased See All
     Sign In and Click My Ebooks
@@ -48,24 +49,24 @@ Wishlist See All
 Lists
     Sign In and Click My Ebooks
     MyEbooks.Click Lists
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
 
 Preordered
     Sign In and Click My Ebooks
     MyEbooks.Click Preordered
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/preordered/
+    YourCollection.Confirm Filter Selected    preordered
 
 Purchased
     Sign In and Click My Ebooks
     MyEbooks.Click Purchased
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/purchased/
+    YourCollection.Confirm Filter Selected    purchased
 
 Rated
     Sign In and Click My Ebooks
     MyEbooks.Click Rated
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_rated/
+    YourCollection.Confirm Filter Selected    all rated
 
 Want To Read
     Sign In and Click My Ebooks
     MyEbooks.Click Want To Read
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/wishlist/
+    YourCollection.Confirm Filter Selected    wishlist

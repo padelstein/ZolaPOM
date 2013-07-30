@@ -39,7 +39,6 @@ class RecommendModal():
         self.enter_message()
         self.submit()
         
-       
     def enter_email(self):
         _recommend_email_form = self._webd_wrap._driver.find_element_by_id('recommend-modal').find_element_by_id('recommend-email-form')
         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', _recommend_email_form.find_elements_by_class_name('textboxlist-bit-editable-input')[0], '1@zolabooks.com')

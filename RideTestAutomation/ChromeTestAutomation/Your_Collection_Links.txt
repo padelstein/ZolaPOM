@@ -4,6 +4,7 @@ Library           ../POMtesting/page_objects/ACPList.py
 Library           ../POMtesting/page_objects/ACPProfile.py
 Library           ../POMtesting/page_objects/AddCard.py
 Library           ../POMtesting/page_objects/Bestsellers.py
+Library           ../POMtesting/page_objects/BillingInfo.py
 Library           ../POMtesting/page_objects/Book.py
 Library           ../POMtesting/page_objects/BooksellerProfile.py
 Library           ../POMtesting/page_objects/Booksellers.py
@@ -33,70 +34,71 @@ Resource          ../Common_Tasks.txt
 All Rated
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click All Rated
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_rated/
+    YourCollection.Confirm Filter Selected    all rated
 
 Edit Devices
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Edit Devices
     YourCollection.Click Save Devices
 
 Favorites
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Favorites
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/favorites/
+    YourCollection.Confirm Filter Selected    favorites
 
 Not For Me
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Not For Me
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/not_for_me/
+    YourCollection.Confirm Filter Selected    not for me
 
 Preordered
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Preordered
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/preordered/
+    YourCollection.Confirm Filter Selected    preordered
 
 Private Books
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Private Books
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/private_books/
+    YourCollection.Confirm Filter Selected    private books
 
 Purchased
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Purchased
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/purchased/
+    YourCollection.Confirm Filter Selected    purchased
 
 View All
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click All Rated
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_rated/
+    YourCollection.Confirm Filter Selected    all rated
     YourCollection.Click View All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
 
 Wishlist
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/all_results/
+    YourCollection.Confirm Page
     YourCollection.Click Wishlist
-    WebDriverWrapper.Check Url    https://zolaqc.com/collection/list/wishlist/
+    YourCollection.Confirm Filter Selected    wishlist
 
 Open Book Modal
     Sign In and Click My Ebooks
     MyEbooks.Click All Books See All
+    YourCollection.Confirm Page
     YourCollection.Click First Book
     BookModal.Close Modal
