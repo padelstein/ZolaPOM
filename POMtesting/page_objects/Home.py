@@ -22,7 +22,7 @@ class Home:
         ''' raises assertion error if page is incorrect '''
         
         # checks for the feed webelement to confirm this is the hompage
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'feed')))
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'feed')), 'feed not present')
         
         _title = self._webd_wrap._driver.title
         
@@ -147,6 +147,11 @@ class Home:
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('HOME').click()
+        
+    def click_zola_icon(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_id('h-logo-link').find_element_by_xpath('a')
 
     ##############################################################################################################
     ####################################BOTTOM LINKS##############################################################

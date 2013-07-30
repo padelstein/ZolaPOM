@@ -110,6 +110,7 @@ Side Feed Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
+    Home.Click the Feed
     MyZola.Confirm Page
 
 Side More Zola Bestsellers
@@ -124,12 +125,13 @@ Side People Finder Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click People Finder
     SignInModal.Sign In    ${EMAIL}    password
-    FindFriend.Confirm Page
+    FindFriends.Confirm Page
 
 Side People Finder Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click Sign In
     SignInModal.Sign In    ${EMAIL}    password
+    Home.Click People Finder
     FindFriends.Confirm Page
 
 Side USA Today Bestsellers

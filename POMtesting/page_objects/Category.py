@@ -61,13 +61,13 @@ class Category:
     
     def confirm_all_categories_page(self):
         
-        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'ALL'))
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'ALL'), 'not on the all categories page')
         
     def confirm_children_page(self):
         
-        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'CHILDREN'))
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'CHILDREN'), 'not on the children categories page')
         
     def confirm_ya_page(self):
         
-        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'YOUNG-ADULT'))
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-category-1'), 'YOUNG'), 'not on the young adult categories page')
         

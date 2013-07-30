@@ -47,7 +47,7 @@ class PurchaseConfirmModal:
         time.sleep(1)
         
     def click_done(self):
-        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.ID, 'redeive_author_emails')))
+        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.ID, 'receive_author_emails')))
        
         _elt = self._webd_wrap._driver.find_element_by_id('sign-in-modal').find_element_by_xpath('footer/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _elt)

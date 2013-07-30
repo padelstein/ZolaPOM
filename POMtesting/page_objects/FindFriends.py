@@ -10,6 +10,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from robot.libraries.BuiltIn import BuiltIn
 
 import random
+import time
 
 class FindFriends:
     
@@ -20,6 +21,7 @@ class FindFriends:
         
     def confirm_page(self, _name=None):
         ''' raises AssertionError if page is incorrect '''
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.ID, 'suggest_h2'), 'Suggested'))
         
         _actual_url = self._webd_wrap._driver.current_url
         _actual_title = self._webd_wrap._driver.title
