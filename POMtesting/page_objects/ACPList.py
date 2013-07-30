@@ -21,6 +21,8 @@ class ACPList:
     def confirm_page(self, _acp_type=None):
         ''' raises AssertionError if page is incorrect. takes the type of acp as arg1 '''
         
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'author')), 'ACP list not present')
+        
         _actual_url = self._webd_wrap._driver.current_url
         _actual_title = self._webd_wrap._driver.title
         
@@ -63,9 +65,11 @@ class ACPList:
     ########################################################################
         
     def confirm_bookseller_page(self):
-        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'author')), 'ACP list not present')
+        self.confirm_page()
+        
         bookstore_button = self._webd_wrap._driver.find_element_by_class_name("author").find_element_by_xpath("a/div/img")
         if bookstore_button is None: raise Exception('bookstore button not found')
+        
         hover = ActionChains(self._webd_wrap._driver).move_to_element(bookstore_button)
         hover.perform()
         self._webd_wrap._driver.execute_script('$(arguments[0]).click()', bookstore_button)

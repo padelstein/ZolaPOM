@@ -72,17 +72,7 @@ class BookModal:
         
         # confirms the modal is gone
         self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
-    
-    ########################################################################
-        
-    def get_book_title(self):
-        ''' returns the title of the book '''
-        self._confirm_modal()
-        
-        time.sleep(1)
-        _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
-        return _elt.text
-    
+           
     def choose_wishlist(self):
         ''' once add to list dialog is displayed, chooses the wishlist '''
         self._confirm_modal()
@@ -118,4 +108,12 @@ class BookModal:
         hover.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list_nsi)
     
-    
+    ########################################################################
+        
+    def get_book_title(self):
+        ''' returns the title of the book '''
+        self._confirm_modal()
+        
+        time.sleep(1)
+        _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
+        return _elt.text
