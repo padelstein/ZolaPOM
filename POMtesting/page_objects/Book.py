@@ -50,7 +50,7 @@ class Book:
         self.confirm_page()
         
         #self._webd_wrap._driver.find_element_by_class_name('l-sidebar-primary').find_element_by_xpath('div/div/ul/li[2]/a').click()
-        self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/section[2]/div[2]/div/div/ul/li[2]/div/a').click()
+        self._webd_wrap._driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div[2]/div/div/ul/li[2]/div/a').click()
         
     def click_add_to_list_nsi(self):
         self.confirm_page()
@@ -58,7 +58,7 @@ class Book:
 #         hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list_nsi)
 #         hover.perform()
 #         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list_nsi)
-        self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/section[2]/div[2]/div/div/ul/li[2]/a').click()
+        self._webd_wrap._driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div[2]/div/div/ul/li[2]/a').click()
         
     def click_recommend(self):
         self.confirm_page()
@@ -68,7 +68,7 @@ class Book:
     def choose_wishlist(self):
         time.sleep(1)
         
-        _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/section[2]/div[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
+        _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[2]/div/section[2]/div[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
         _hov.perform()
         self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
