@@ -21,6 +21,8 @@ class SignUp:
         
     def confirm_page(self):
         
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-1'), 'Fill in your'))
+        
         _actual_url = self._webd_wrap._driver.current_url
         _url = 'https://zolaqc.com/signup'
         
