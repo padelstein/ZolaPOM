@@ -21,7 +21,7 @@ class AddCard:
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
         
-        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-modal-capital'), 'CREDIT'), 'not on add card page')
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-modal-capital'), 'CREDIT'), 'Not on the add card page.')
         
         _url = self._webd_wrap._driver.current_url
         
