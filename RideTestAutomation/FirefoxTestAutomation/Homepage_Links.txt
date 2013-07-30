@@ -206,4 +206,4 @@ Side People Finder No Account
     Home.Click People Finder
     SignInModal.Click Sign Up
     Sign Up.Submit New Member Info
-    FindFriend.Confirm Page
+    FindFriends.Confirm Page

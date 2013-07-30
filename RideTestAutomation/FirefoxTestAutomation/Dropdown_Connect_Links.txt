@@ -69,4 +69,4 @@ Friends No Account
     Home.Click on Link    Friends
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    FindFriends.Confirm Page    David Tennant
+    FindFriends.Confirm Page

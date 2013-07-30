@@ -124,7 +124,7 @@ Side People Finder Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click People Finder
     SignInModal.Sign In    ${EMAIL}    password
-    FindFriend.Confirm Page
+    FindFriends.Confirm Page
 
 Side People Finder Signed In
     ${EMAIL}=    Register and Sign Out
@@ -204,4 +204,4 @@ Side People Finder No Account
     Home.Click People Finder
     SignInModal.Click Sign Up
     Sign Up.Submit New Member Info
-    FindFriend.Confirm Page
+    FindFriends.Confirm Page
