@@ -35,7 +35,7 @@ No Account
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPLIst.Click First ACP
-    ${NAME}=    ACPModal.Get Name
+    ACPModal.Get Name
     ACPModal.Click Follow
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
@@ -50,7 +50,7 @@ Signed In
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPList.Click First ACP
-    ${NAME}=    ACPModal.Get Name
+    ACPModal.Get Name
     ACPModal.Click Follow
     ACPModal.Close Modal
     ACPList.Click My Zola
@@ -61,7 +61,7 @@ Not Signed In
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPList.Click First ACP
-    ${NAME}=    ACPModal.Get Name
+    ACPModal.Get Name
     ACPModal.Click Follow
     SignInModal.Sign In    ${EMAIL}    password
     ACPModal.Close Modal

@@ -104,7 +104,7 @@ Side Feed Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click The Feed
     SignInModal.Sign In    ${EMAIL}    password
-    MyZola.Confirm Page
+    Home.Confirm Page
 
 Side Feed Signed In
     ${EMAIL}=    Register and Sign Out
@@ -193,3 +193,15 @@ See All Fiction New Releases
 See All Non Fiction New Releases
     Home.Click See All Non Fiction
     NewReleases.Confirm Page
+
+Side Feed No Account
+    Home.Click The Feed
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    MyZola.Confirm Page
+
+Side People Finder No Account
+    Home.Click People Finder
+    SignInModal.Click Sign Up
+    Sign Up.Submit New Member Info
+    FindFriend.Confirm Page
