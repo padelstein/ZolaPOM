@@ -4,6 +4,7 @@ Library           ../POMtesting/page_objects/ACPList.py
 Library           ../POMtesting/page_objects/ACPProfile.py
 Library           ../POMtesting/page_objects/AddCard.py
 Library           ../POMtesting/page_objects/Bestsellers.py
+Library           ../POMtesting/page_objects/BillingInfo.py
 Library           ../POMtesting/page_objects/Book.py
 Library           ../POMtesting/page_objects/BooksellerProfile.py
 Library           ../POMtesting/page_objects/Booksellers.py
@@ -46,6 +47,9 @@ Business & Economics
     Category.Page Title Should Be    Zola Books | ebook | Business & Economics
 
 Children
+    Home.Hover Over Category Dropdown
+    Home.Click on Link    Children
+    Category.Confirm Children Page
 
 Classics & Poetry
     Home.Hover Over Category Dropdown
@@ -158,3 +162,6 @@ Urban
     Category.Page Title Should Be    Zola Books | ebook | Urban
 
 Young Adult
+    Home.Hover Over Category Dropdown
+    Home.Click on Link    Young Adult
+    Category.Confirm YA page

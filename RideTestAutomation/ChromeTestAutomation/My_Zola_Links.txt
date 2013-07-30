@@ -4,6 +4,7 @@ Library           ../POMtesting/page_objects/ACPList.py
 Library           ../POMtesting/page_objects/ACPProfile.py
 Library           ../POMtesting/page_objects/AddCard.py
 Library           ../POMtesting/page_objects/Bestsellers.py
+Library           ../POMtesting/page_objects/BillingInfo.py
 Library           ../POMtesting/page_objects/Book.py
 Library           ../POMtesting/page_objects/BooksellerProfile.py
 Library           ../POMtesting/page_objects/Booksellers.py
@@ -34,7 +35,7 @@ Library           ../../POMtesting/page_objects/BillingInfo.py
 Billing Info
     SIgn In and Click My Zola
     My Zola.Click Billing Info
-    BillingInfo.Confirm Page
+    WebDriverWrapper.Check Url    https://zolaqc.com/profile/billing
 
 Collection Book Link
     Sign In and Click My Zola
@@ -88,7 +89,7 @@ Profile Picture
 Sort Everything
     Sign In and Click My Zola
     MyZola.Sort Everything
-    MyZola.Confirm Page
+    WebDriverWrapper.Check Url    https://zolaqc.com/profile/david-tennant
 
 Sort Just Me
     Sign In and Click My Zola

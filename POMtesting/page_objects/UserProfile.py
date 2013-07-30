@@ -22,6 +22,8 @@ class UserProfile:
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
         
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'activity-container')), 'user profile not found')
+
         _url = self._webd_wrap._driver.current_url
         
         if not _url.startswith('https://zolaqc.com/profile'):

@@ -4,6 +4,7 @@ Library           ../POMtesting/page_objects/ACPList.py
 Library           ../POMtesting/page_objects/ACPProfile.py
 Library           ../POMtesting/page_objects/AddCard.py
 Library           ../POMtesting/page_objects/Bestsellers.py
+Library           ../POMtesting/page_objects/BillingInfo.py
 Library           ../POMtesting/page_objects/Book.py
 Library           ../POMtesting/page_objects/BooksellerProfile.py
 Library           ../POMtesting/page_objects/Booksellers.py
