@@ -33,7 +33,7 @@ Resource          ../Common_Tasks.txt
 Billing Info
     SIgn In and Click My Zola
     My Zola.Click Billing Info
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/billing
+    BillingInfo.Confirm Page
 
 Collection Book Link
     Sign In and Click My Zola

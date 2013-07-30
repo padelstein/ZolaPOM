@@ -28,6 +28,7 @@ Library           ../POMtesting/modal_objects/RecommendModal.py
 Library           ../POMtesting/modal_objects/SignInModal.py
 Library           ../POMtesting/modal_objects/UserModal.py
 Resource          ../Common_Tasks.txt
+Library           ../../POMtesting/page_objects/BillingInfo.py
 
 *** Test Cases ***
 Billing Info
