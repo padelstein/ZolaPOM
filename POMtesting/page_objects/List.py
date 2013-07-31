@@ -26,7 +26,7 @@ class List:
         
         if _list_name is None:
             _title = 'Zola Books | ebook | Booklist'
-            if not _actual_url.startswith('https://zolabooks.com/list') or not _actual_title.startswith(_title):
+            if not _actual_url.startswith('https://zolaqc.com/list') or not _actual_title.startswith(_title):
                 raise AssertionError("Not on an List page")
         else:
             _title = 'Zola Books | ebook | ' + _list_name
@@ -45,7 +45,6 @@ class List:
     
     def confirm_daily_deals(self):
         ''' confirms the page is the Zola Deals page '''
-        self.confirm_page()
         
         _list_title = self._webd_wrap._driver.find_element_by_class_name('header-1').text
         
