@@ -59,12 +59,12 @@ Find People
 Followers Tab
     Sign In and Click My Zola
     MyZola.Click Followers Tab
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/followers
+    WebDriverWrapper.Check Url    https://zolaqc.com/profile/followers/david-tennant
 
 Following Tab
     Sign In and Click My Zola
     MyZola.Click Following Tab
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/following
+    WebDriverWrapper.Check Url    https://zolaqc.com/profile/following/david-tennant
 
 List Tab
     ${EMAIL}=    Register and Sign Out
@@ -72,7 +72,7 @@ List Tab
     SignInModal.Sign In    ${EMAIL}    password
     Home.Click My Zola
     MyZola.Click List Tab
-    WebDriverWrapper.Check Url    https://zolaqc.com/list/wishlist
+    List.Confirm Page
 
 Messages Tab
     Sign In and Click My Zola
@@ -88,7 +88,7 @@ Profile Picture
 Sort Everything
     Sign In and Click My Zola
     MyZola.Sort Everything
-    WebDriverWrapper.Check Url    https://zolaqc.com/profile/david-tennant
+    MyZola.Confirm Page
 
 Sort Just Me
     Sign In and Click My Zola

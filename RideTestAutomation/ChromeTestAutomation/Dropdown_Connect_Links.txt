@@ -62,6 +62,11 @@ Friends Not Signed In
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Friends
     SignInModal.Sign In
-    Home.Hover Over Connect Dropdown
-    Home.Click On Link
     FindFriends.Confirm Page    David Tennant
+
+Friends No Account
+    Home.Hover Over Connect Dropdown
+    Home.Click on Link    Friends
+    SignInModal.Click Sign Up
+    SignUp.Submit New Member Info
+    FindFriends.Confirm Page

@@ -35,7 +35,7 @@ No Account
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPLIst.Click First ACP
-    ${NAME}=    ACPModal.Get Name
+    ACPModal.Get Name
     ACPModal.Click Full Profile
     ACPProfile.Click Follow
     SignInModal.Click Sign Up
@@ -50,7 +50,7 @@ Signed In
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPLIst.Click First ACP
-    ${NAME}=    ACPModal.Get Name
+    ACPModal.Get Name
     ACPModal.Click Full Profile
     ACPProfile.Click Follow
     ACPProfile.Click My Zola
@@ -61,7 +61,7 @@ Not Signed In
     Home.Hover Over Connect Dropdown
     Home.Click on Link    Authors
     ACPLIst.Click First ACP
-    ${NAME}=    ACPModal.Get Name
+    ACPModal.Get Name
     ACPModal.Click Full Profile
     ACPProfile.Click Follow
     SignInModal.Sign In    ${EMAIL}    password
