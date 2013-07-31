@@ -21,7 +21,7 @@ class MyZola:
         
     def confirm_page(self, _name=None):
         ''' raises AssertionError if page is incorrect '''
-        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'title-1'), 'Your Profile'))
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'title-1'), 'Your Profile'), 'not on My Zola page')
         
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title

@@ -30,10 +30,9 @@ class Category:
     def page_title_should_be(self, _correct_title):
         ''' raises AssertionError if page title is not arg1 '''
         
-        actual = self._webd_wrap._driver.title
+        # waits until title is arg1
+        self._webd_wrap.wait.until(EC.title_is(_correct_title), "Title should have been %s but was %s" % (_correct_title, self._webd_wrap._driver.title))
         
-        if actual != _correct_title:
-            raise AssertionError("Title should have been %s but was %s" % (_correct_title, actual))
         
     def click_my_zola(self):
         self.confirm_page()

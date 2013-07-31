@@ -22,13 +22,12 @@ class BookModal:
         ''' raises AssertionError if modal is incorrect '''
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'modal not present')
         
-        # waits until full profile button is visible
-        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "footer[class='l-section-primary l-section-no-border']")), 'full book button')
-        
+        # waits until the rating bar is present to confirm the a book modal is present
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, "ui-rating-bar-section-large")), 'rating bar')
+
         _full_profile_link = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/footer/a')
-        print '###' + _full_profile_link.text + '###'
-        
-        if "full book info" not in _full_profile_link.text.lower():
+        print _full_profile_link.get_attribute("innerHTML")
+        if "full book info" not in _full_profile_link.get_attribute("innerHTML").lower():
             raise AssertionError("Not on a Book Modal.")
      
     def close_modal(self):
@@ -46,7 +45,7 @@ class BookModal:
         ''' rates the book '''
         self._confirm_modal()
         
-        self._webd_wrap._driver.find_element_by_xpath('/html/body/div[4]').find_element_by_class_name('ui-rating-bar-section-large').find_element_by_xpath('span/div[3]/a').click()    
+        self._webd_wrap._driver.find_element_by_class_name('ui-rating-bar-section-large').find_element_by_xpath('span/div[3]/a').click()    
         
     def click_buy(self):
         ''' clicks the buy button on the book modal '''
@@ -114,6 +113,9 @@ class BookModal:
         ''' returns the title of the book '''
         self._confirm_modal()
         
-        time.sleep(1)
+        self._webd_wrap.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "h2[class='header-1 margin-bottom-10px']")))
         _elt = self._webd_wrap._driver.find_element_by_class_name("fancybox-inner").find_element_by_xpath("div/div/section[1]/div/section/div[2]/h2/a")
-        return _elt.text
+        return _elt.get_attribute('innerHTML')
+    
+    
+    

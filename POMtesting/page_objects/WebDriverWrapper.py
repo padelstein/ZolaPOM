@@ -22,14 +22,14 @@ class WebDriverWrapper:
         self._driver = webdriver.Firefox()
         self._driver.maximize_window()
         self._driver.implicitly_wait(10)
-        self.wait = WebDriverWait(self._driver, 15)
+        self.wait = WebDriverWait(self._driver, 20)
         self._driver.get(self._authUrl)
         
     def open_chrome(self):
         self._driver = webdriver.Chrome('/Library/Python/2.7/site-packages/chromedriver')
         self._driver.maximize_window()
         self._driver.implicitly_wait(10)
-        self.wait = WebDriverWait(self._driver, 15)
+        self.wait = WebDriverWait(self._driver, 20)
         self._driver.get(self._authUrl)
         # chrome doesn't like going straight into the test from the authorization url so we have to reload with the normal url
         self._driver.get(self._baseUrl)

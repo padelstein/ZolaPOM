@@ -68,3 +68,5 @@ House Icon
     Home.Confirm Page
 
 Zola Icon
+    Home.Click Zola Icon
+    Home.Confirm Page

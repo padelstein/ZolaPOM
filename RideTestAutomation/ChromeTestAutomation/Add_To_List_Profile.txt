@@ -39,7 +39,7 @@ No Account
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
     Book.Choose Wishlist
-    Home.Click My Zola
+    Book.Click My Zola
     MyZola.First Activity Should Be Added Book    ${BOOK_TITLE}
 
 Signed In
