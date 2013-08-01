@@ -104,7 +104,7 @@ Side Feed Not Signed In
     ${EMAIL}=    Register and Sign Out
     Home.Click The Feed
     SignInModal.Sign In    ${EMAIL}    password
-    MyZola.Confirm Page
+    Home.Confirm Page
 
 Side Feed Signed In
     ${EMAIL}=    Register and Sign Out
@@ -162,7 +162,7 @@ Wishlist No Account
 the Zola Network Not Signed In
     Home.Click Zola Network
     SignInModal.Sign In
-    MyZola.Confirm Page    David Tennant
+    Home.Confirm Page
 
 the Zola Network Signed In
     Home.Click Sign In
@@ -174,7 +174,8 @@ the Zola Network No Account
     Home.Click Zola Network
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    MyZola.Confirm Page
+    FindFriends.Click Skip This
+    Home.Confirm Page
 
 User in the Feed
     Home.Click First User in Feed
@@ -200,7 +201,8 @@ Side Feed No Account
     Home.Click The Feed
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
-    MyZola.Confirm Page
+    FindFriends.Click Skip This
+    Home.Confirm Page
 
 Side People Finder No Account
     Home.Click People Finder

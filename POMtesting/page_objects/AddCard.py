@@ -37,7 +37,7 @@ class AddCard:
         self.enter_cc_number()
         self.click_cc_month_dropdown()
         self.click_cc_year_dropdown()
-        self.enter_cc_adress()
+        self.enter_cc_address()
         self.click_state_dropdown()
         self.enter_zip()
         self.click_cc_submit()
@@ -54,7 +54,7 @@ class AddCard:
         self._webd_wrap._driver.find_element_by_id('add-payment-profile').find_element_by_id("dk_container_pp_cc_exp_year").find_element_by_xpath("a").click()
         self._webd_wrap._driver.find_element_by_id('add-payment-profile').find_element_by_link_text("2015").click()
             
-    def enter_cc_adress(self):
+    def enter_cc_address(self):
         self._webd_wrap._driver.find_element_by_id('add-payment-profile').find_element_by_id("pp_address_1").send_keys("221B Baker Street")
         self._webd_wrap._driver.find_element_by_id('add-payment-profile').find_element_by_id("pp_city").send_keys("London")
         

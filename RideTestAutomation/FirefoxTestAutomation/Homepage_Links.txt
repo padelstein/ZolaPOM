@@ -174,6 +174,7 @@ the Zola Network No Account
     Home.Click Zola Network
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
+    FindFriends.Click Skip This
     Home.Confirm Page
 
 User in the Feed
@@ -200,6 +201,7 @@ Side Feed No Account
     Home.Click The Feed
     SignInModal.Click Sign Up
     SignUp.Submit New Member Info
+    FindFriends.Click Skip This
     Home.Confirm Page
 
 Side People Finder No Account
