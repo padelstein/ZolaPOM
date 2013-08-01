@@ -24,7 +24,7 @@ class Category:
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith('https://zolaqc.com/category'):
+        if not _url.startswith(self._webd_wrap._baseURL + '/category'):
             raise AssertionError("Not on a Category page.")
         
     def page_title_should_be(self, _correct_title):

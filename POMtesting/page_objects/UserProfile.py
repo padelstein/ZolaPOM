@@ -26,7 +26,7 @@ class UserProfile:
 
         _url = self._webd_wrap._driver.current_url
         
-        if not _url.startswith('https://zolaqc.com/profile'):
+        if not _url.startswith(self._webd_wrap._baseURL + '/profile'):
             raise AssertionError("Not on a profile page.")    
         
     def click_my_zola(self):
@@ -77,6 +77,6 @@ class UserProfile:
         self.confirm_page()
         
         _url = self._webd_wrap._driver.current_url
-        return _url.replace('https://zolaqc.com/profile')
+        return _url.replace(self._webd_wrap._baseURL + '/profile')
     
     

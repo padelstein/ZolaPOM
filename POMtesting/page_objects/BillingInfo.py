@@ -22,6 +22,6 @@ class BillingInfo:
         
         _url = self._webd_wrap._driver.current_url
         
-        if not _url.startswith('https://zolaqc.com/profile/billing'):
+        if not _url.startswith(self._webd_wrap._baseURL + '/profile/billing'):
             raise AssertionError("Not on the billing info page.")
         

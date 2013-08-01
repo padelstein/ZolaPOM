@@ -24,7 +24,7 @@ class SignUp:
         self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'header-1'), 'Fill in your'))
         
         _actual_url = self._webd_wrap._driver.current_url
-        _url = 'https://zolaqc.com/signup'
+        _url = self._webd_wrap._baseURL + '/signup'
         
         if not _actual_url.startswith(_url):
             raise AssertionError("Not on Sign Up page.") 

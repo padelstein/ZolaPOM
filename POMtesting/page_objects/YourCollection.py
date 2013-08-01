@@ -30,7 +30,7 @@ class YourCollection:
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith('https://zolaqc.com/collection/list/') or _title != 'Zola Books | Your Collection' or 'your collection' not in _header:
+        if not _url.startswith(self._webd_wrap._baseURL + '/collection/list/') or _title != 'Zola Books | Your Collection' or 'your collection' not in _header:
             raise AssertionError("Not on the Your Collection page.")
         
     ##################################################################################

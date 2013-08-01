@@ -29,7 +29,7 @@ class ACPList:
         if _acp_type is None:
             _url = 'https://zolaqc.com/people/'
         else:
-            _url = 'https://zolaqc.com/people/' + _acp_type
+            _url = self._webd_wrap._baseURL + '/people/' + _acp_type
             _title = 'Zola Books | ebook | ' + _acp_type.capitalize()
         
         
@@ -65,7 +65,7 @@ class ACPList:
     ########################################################################
         
     def confirm_bookseller_page(self):
-        self.confirm_page()
+#         self.confirm_page()
         
         bookstore_button = self._webd_wrap._driver.find_element_by_class_name("author").find_element_by_xpath("a/div/img")
         if bookstore_button is None: raise Exception('bookstore button not found')

@@ -18,7 +18,6 @@ class SignInModal:
 
     def __init__(self):
         self._webd_wrap = BuiltIn().get_library_instance('WebDriverWrapper')
-        self._random_email = 'jay' + str( random.randint(0,10000000) ) + 'zolabooks.com'
         
     def _confirm_modal(self):
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CLASS_NAME, 'fancybox-inner')), 'Sign In modal not present')

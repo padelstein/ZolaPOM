@@ -24,7 +24,7 @@ class Booksellers:
         _actual_url = self._webd_wrap._driver.current_url
         _actual_title = self._webd_wrap._driver.title
         
-        _url = 'https://zolaqc.com/people/booksellers'
+        _url = self._webd_wrap._baseURL + '/people/booksellers'
         _title = 'Zola Books | ebook |'# Booksellers'
         
         if _url != _actual_url  or _title != _actual_title:

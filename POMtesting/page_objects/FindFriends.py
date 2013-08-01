@@ -26,7 +26,7 @@ class FindFriends:
         _actual_url = self._webd_wrap._driver.current_url
         _actual_title = self._webd_wrap._driver.title
         
-        _url = 'https://zolaqc.com/profile/people/finder'
+        _url = self._webd_wrap._baseURL + '/profile/people/finder'
         if _name is None:
             _title = _actual_title
         else:
@@ -36,9 +36,5 @@ class FindFriends:
             raise AssertionError("Not on the People Finder page.")
         
     def click_skip_this(self):
-        self._webd_wrap._driver.find_element_by_xpath('html/body/div[2]/div/div/footer/form/a').click()
-    
-    
-            
-    ########################################################################
-    ########################################################################
+
+        self._webd_wrap._driver.find_element_by_xpath("/html/body/div[2]/div/div/footer/form/a").click()

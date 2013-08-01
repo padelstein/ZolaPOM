@@ -25,7 +25,7 @@ class Book:
        
         _url = self._webd_wrap._driver.current_url
         
-        if not _url.startswith('https://zolaqc.com/book'):
+        if not _url.startswith(self._webd_wrap._baseURL + '/book'):
             raise AssertionError("Not on a Book Profile page.")
     
     def click_my_zola(self):
