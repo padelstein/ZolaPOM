@@ -25,7 +25,7 @@ class AddCard:
         
         _url = self._webd_wrap._driver.current_url
         
-        if not _url.startswith('https://zolaqc.com/profile/add-card'):
+        if not _url.startswith(self._webd_wrap._baseURL + '/profile/add-card'):
             raise AssertionError("Not on the add card page.")
         
     ########################################################################

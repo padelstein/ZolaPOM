@@ -25,7 +25,7 @@ class NewReleases:
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith('https://zolaqc.com/new-releases') or _title != 'Zola Books | New Releases | Browse' or _header != 'NEW RELEASES':
+        if not _url.startswith(self._webd_wrap._baseURL + '/new-releases') or _title != 'Zola Books | New Releases | Browse' or _header != 'NEW RELEASES':
             raise AssertionError("Not on the bestsellers page.")
             
     ########################################################################

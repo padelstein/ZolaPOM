@@ -23,7 +23,7 @@ class BooksellerProfile:
         ''' raises AssertionError if page is incorrect. Does this by checking for the pledge element. '''
         
         _actual_url = self._webd_wrap._driver.current_url
-        _url = 'https://zolaqc.com/profile'
+        _url = self._webd_wrap._baseURL + '/profile'
         
         # this should really check for the pledge webelement but there isn't a good way of identifying it yet
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'page')))

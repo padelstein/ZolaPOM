@@ -26,7 +26,7 @@ class Bestsellers:
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith('https://zolaqc.com/bestsellers') or _title != 'Zola Books | Best Sellers | Browse':
+        if not _url.startswith(self._webd_wrap._baseURL + '/bestsellers') or _title != 'Zola Books | Best Sellers | Browse':
             raise AssertionError("Not on the bestsellers page.")     
         
     def click_my_zola(self):

@@ -32,7 +32,7 @@ class MyZola:
         else:
             _actual_title = 'Zola Books | ' + _name
         
-        if not _url.startswith('https://zolaqc.com/profile') or _title != _actual_title:
+        if not _url.startswith(self._webd_wrap._baseURL + '/profile') or _title != _actual_title:
             raise AssertionError("Not on My Zola page.")
         
     def click_my_zola(self):

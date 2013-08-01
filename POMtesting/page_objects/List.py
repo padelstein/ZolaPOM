@@ -26,11 +26,11 @@ class List:
         
         if _list_name is None:
             _title = 'Zola Books | ebook | Booklist'
-            if not _actual_url.startswith('https://zolaqc.com/list') or not _actual_title.startswith(_title):
+            if not _actual_url.startswith(self._webd_wrap._baseURL + '/list') or not _actual_title.startswith(_title):
                 raise AssertionError("Not on an List page")
         else:
             _title = 'Zola Books | ebook | ' + _list_name
-            if not _actual_url.startswith('https://zolaqc.com/list') or not _actual_title.startswith(_title):
+            if not _actual_url.startswith(self._webd_wrap._baseURL + '/list') or not _actual_title.startswith(_title):
                 raise AssertionError("Not on a List page")
 
     def click_my_zola(self):

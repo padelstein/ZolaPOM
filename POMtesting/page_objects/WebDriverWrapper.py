@@ -15,30 +15,30 @@ class WebDriverWrapper:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
     def __init__(self):
-        self._authUrl = 'https://zola_stage:zola123@zolaqc.com'
-        self._baseUrl = 'https://zolaqc.com'
+        self._authURL = 'https://zola_stage:zola123@zolaqc.com'
+        self._baseURL = 'https://zolaqc.com'
 
     def open_firefox(self):
         self._driver = webdriver.Firefox()
         self._driver.maximize_window()
         self._driver.implicitly_wait(10)
         self.wait = WebDriverWait(self._driver, 20)
-        self._driver.get(self._authUrl)
+        self._driver.get(self._authURL)
         
     def open_chrome(self):
         self._driver = webdriver.Chrome('/Library/Python/2.7/site-packages/chromedriver')
         self._driver.maximize_window()
         self._driver.implicitly_wait(10)
         self.wait = WebDriverWait(self._driver, 20)
-        self._driver.get(self._authUrl)
+        self._driver.get(self._authURL)
         # chrome doesn't like going straight into the test from the authorization url so we have to reload with the normal url
-        self._driver.get(self._baseUrl)
+        self._driver.get(self._baseURL)
         
     def go_to_zola(self):
-        self._driver.get(self._authUrl)
+        self._driver.get(self._authURL)
     
     def open_page(self, path):
-        self._driver.get(self._baseUrl + path)
+        self._driver.get(self._baseURL + path)
         
     def check_url(self, _url):
         ''' raises AssertionError if page is incorrect '''
