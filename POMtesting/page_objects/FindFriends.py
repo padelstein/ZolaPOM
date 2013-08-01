@@ -36,5 +36,5 @@ class FindFriends:
             raise AssertionError("Not on the People Finder page.")
         
     def click_skip_this(self):
-
+        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/div/footer/form/a')))
         self._webd_wrap._driver.find_element_by_xpath("/html/body/div[2]/div/div/footer/form/a").click()

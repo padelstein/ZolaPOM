@@ -40,7 +40,7 @@ class SignInModal:
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _sign_up_button)
         
         # confirms modal is gone
-        self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
+        #self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
         
     def sign_in(self, _username='davidtennant@zolabooks.com', _password='kingkong'): 
         self._confirm_modal()
