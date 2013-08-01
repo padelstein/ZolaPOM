@@ -22,15 +22,13 @@ class YourCollection:
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
         
-        try:
-            _header = self._webd_wrap._driver.find_element_by_class_name('title-1').text.lower()
-        except Exceptions.NoSuchElementException:
-            raise AssertionError('Not on Your Collection page')
+        self._webd_wrap.wait.until(EC.text_to_be_present_in_element((By.CLASS_NAME, 'title-1'), 'Your Collection'), 'not on Your Collection page.')
+
         
         _url = self._webd_wrap._driver.current_url
         _title = self._webd_wrap._driver.title
         
-        if not _url.startswith(self._webd_wrap._baseURL + '/collection/list/') or _title != 'Zola Books | Your Collection' or 'your collection' not in _header:
+        if not _url.startswith(self._webd_wrap._baseURL + '/collection/list/') or _title != 'Zola Books | Your Collection':
             raise AssertionError("Not on the Your Collection page.")
         
     ##################################################################################

@@ -20,6 +20,7 @@ class ACPProfile:
         
     def confirm_page(self):
         ''' raises AssertionError if page is incorrect '''
+        self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "ul[class='ui-button-set ui-button-set-170px']")), 'Not on a Profile page.')
         
         _url = self._webd_wrap._driver.current_url
         
