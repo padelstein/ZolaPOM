@@ -46,3 +46,16 @@ Sign In and Click My Ebooks
     Home.Click Sign In
     SignInModal.Sign In
     Home.Click My Ebooks
+
+Register, Add Card, and Sign Out
+    Home.Click Sign In
+    SignInModal.Click Sign Up
+    ${EMAIL}=    SignUp.Submit New Member Info
+    FindFriends.Click Skip This
+    Home.Click My Zola
+    MyZola.Click Billing Info
+    BillingInfo.Click Add Card
+    AddCard.Submit New CC Info
+    BillingInfo.Click Back to Profile
+    MyZola.Click Sign Out
+    [Return]    ${EMAIL}

@@ -53,6 +53,11 @@ class MyZola:
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'h-user-toolbar')))    
         
         self._webd_wrap._driver.find_element_by_id('logout-link').click()
+        
+    def click_home_icon(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_id('h-header').find_element_by_link_text('HOME').click()
 
         
     ########################################################################
@@ -227,6 +232,8 @@ class MyZola:
             raise AssertionError("Not on edit profile page.")
         
     def click_billing_info(self):
+        self.confirm_page()
+        
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/section/ul/li[2]/a").click()
         
     def click_find_people(self):

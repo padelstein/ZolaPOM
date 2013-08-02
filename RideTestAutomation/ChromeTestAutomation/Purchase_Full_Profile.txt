@@ -73,3 +73,30 @@ Not Signed In
     PurchaseConfirmModal.Click Done
     Book.Click My Zola
     MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
+
+Not Signed In w/CC
+    ${EMAIL}=    Register, Add Card, and Sign Out
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Full Profile
+    Book.Click Buy
+    SignInModal.Sign In    ${EMAIL}    password
+    PurchaseConfirmModal.Click Receive Emails
+    PurchaseConfirmModal.Click Buy
+    PurchaseConfirmModal.Click Done
+    Book.Click My Zola
+    MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
+
+Signed In w/CC
+    ${EMAIL}=    Register, Add Card, and Sign Out
+    Home.Click Sign In
+    SignInModal.Sign In    ${EMAIL}    password
+    Home.Click First Bestseller
+    ${BOOK_TITLE}=    BookModal.Get Book Title
+    BookModal.Click Full Profile
+    Book.Click Buy
+    PurchaseConfirmModal.Click Receive Emails
+    PurchaseConfirmModal.Click Buy
+    PurchaseConfirmModal.Click Done
+    Book.Click My Zola
+    MyZola.First Activity Should Be Purchased Book    ${BOOK_TITLE}
