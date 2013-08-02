@@ -53,11 +53,6 @@ class SignUp:
 
         self._webd_wrap._driver.find_element_by_id("password").send_keys("password")
         self._webd_wrap._driver.find_element_by_id("confirm_password").send_keys("password")
-        
-#         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_id('password'), "password")
-# 
-#         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_name('confirm_password'), "password")
-#         
 
 
     def register_name(self):
@@ -71,4 +66,6 @@ class SignUp:
         self._webd_wrap._driver.find_element_by_id("bday_y").send_keys("1990")
 
     def register_submit(self):
+        
         self._webd_wrap._driver.find_element_by_name("submit").click()
+        
