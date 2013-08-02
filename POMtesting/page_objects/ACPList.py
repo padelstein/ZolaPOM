@@ -27,7 +27,7 @@ class ACPList:
         _actual_title = self._webd_wrap._driver.title
         
         if _acp_type is None:
-            _url = 'https://zolaqc.com/people/'
+            _url = self._webd_wrap._baseURL + '/people/'
         else:
             _url = self._webd_wrap._baseURL + '/people/' + _acp_type
             _title = 'Zola Books | ebook | ' + _acp_type.capitalize()
