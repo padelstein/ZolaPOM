@@ -45,12 +45,17 @@ class SignUp:
         return _email
 
     def register_email(self, email):
+        
         self._webd_wrap._driver.find_element_by_name("email").send_keys(email)
         self._webd_wrap._driver.find_element_by_name("confirm_email").send_keys(email)
 
     def register_password(self):
-        self._webd_wrap._driver.find_element_by_name("password").send_keys("password")
-        self._webd_wrap._driver.find_element_by_name("confirm_password").send_keys("password")
+        
+        self._webd_wrap._driver.find_element_by_id("password").send_keys("password")
+        self._webd_wrap._driver.find_element_by_id("confirm_password").send_keys("password")
+
+#         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_name('password'), "password")
+#         self._webd_wrap._driver.execute_script('$(arguments[0]).val(arguments[1])', self._webd_wrap._driver.find_element_by_name('confirm_password'), "password")
 
     def register_name(self):
         self._webd_wrap._driver.find_element_by_id("first_name").send_keys("Lin")
