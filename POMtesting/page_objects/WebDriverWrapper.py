@@ -15,11 +15,11 @@ class WebDriverWrapper:
     ROBOT_LIBRARY_SCOPE = 'GLOBAL'
     
     def __init__(self):
-#         self._authURL = 'https://zola_stage:zola123@wuyou.divergence.zolaqc.com'
-#         self._baseURL = 'https://wuyou.divergence.zolaqc.com'
+        self._authURL = 'https://zola_stage:zola123@wuyou.divergence.zolaqc.com'
+        self._baseURL = 'https://wuyou.divergence.zolaqc.com'
 
-        self._authURL = 'https://zola_stage:zola123@zolaqc.com'
-        self._baseURL = 'https://zolaqc.com'
+#         self._authURL = 'https://zola_stage:zola123@zolaqc.com'
+#         self._baseURL = 'https://zolaqc.com'
 
     def open_firefox(self):
         self._driver = webdriver.Firefox()
