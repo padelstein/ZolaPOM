@@ -16,14 +16,14 @@ class WebDriverWrapper:
     
     def __init__(self):
         self._authURL = 'https://zola_stage:zola123@zolaqc.com'
-        self._baseURL = 'https://zolabooks.com'
+        self._baseURL = 'https://zolaqc.com'
 
     def open_firefox(self):
         self._driver = webdriver.Firefox()
         self._driver.maximize_window()
         self._driver.implicitly_wait(10)
         self.wait = WebDriverWait(self._driver, 20)
-        #self._driver.get(self._authURL)
+        self._driver.get(self._authURL)
         self._driver.get(self._baseURL)
         
     def open_chrome(self):
@@ -31,7 +31,7 @@ class WebDriverWrapper:
         self._driver.maximize_window()
         self._driver.implicitly_wait(10)
         self.wait = WebDriverWait(self._driver, 20)
-        #self._driver.get(self._authURL)
+        self._driver.get(self._authURL)
         # chrome doesn't like going straight into the test from the authorization url so we have to reload with the normal url
         self._driver.get(self._baseURL)
         

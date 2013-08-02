@@ -25,3 +25,15 @@ class BillingInfo:
         if not _url.startswith(self._webd_wrap._baseURL + '/profile/billing'):
             raise AssertionError("Not on the billing info page.")
         
+    ##########################################################################
+    ##########################################################################
+    
+    def click_add_card(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-section-header-2').find_element_by_xpath('a').click()
+        
+    def click_back_to_profile(self):
+        self.confirm_page()
+        
+        self._webd_wrap._driver.find_element_by_class_name('l-section-capital').find_element_by_xpath('a').click()
