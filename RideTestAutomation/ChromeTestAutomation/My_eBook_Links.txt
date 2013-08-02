@@ -39,12 +39,12 @@ All Books See All
 Purchased See All
     Sign In and Click My Ebooks
     My Ebooks.Click Purchased See All
-    WebDriverWrapper.Check Url    https://zolabooks.com/collection/list/purchased/142530
+    My Ebooks.Check Purchased See All
 
 Wishlist See All
     Sign In and Click My Ebooks
     My Ebooks.Click Wishlist See All
-    WebDriverWrapper.Check Url    https://zolabooks.com/collection/list/wishlist/142530
+    My Ebooks.Check Wishlist See All
 
 Lists
     Sign In and Click My Ebooks
