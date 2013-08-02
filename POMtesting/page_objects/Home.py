@@ -9,6 +9,8 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from robot.libraries.BuiltIn import BuiltIn
 
+
+
 import time
 
 class Home:
@@ -196,7 +198,14 @@ class Home:
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_class_name("g-footer-copyright").find_element_by_xpath("a").click()
+
+    def check_copyright_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/terms#':
+            raise AssertionError("Not on copyright page.")
         
+      
     def click_facebook_icon(self):
         self.confirm_page()
         

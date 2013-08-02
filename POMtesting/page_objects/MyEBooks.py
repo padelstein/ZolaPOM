@@ -47,12 +47,23 @@ class MyEBooks:
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/section[2]/header[3]/a').click()
+    
+    def check_purchased_see_all(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if not _actual_url.startswith(self._webd_wrap._baseURL + '/collection/list/purchased/'):
+            raise AssertionError("Not on purchased see all page.")
         
     def click_wishlist_see_all(self):
         self.confirm_page()
         
         self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div/section[2]/header[2]/a').click()    
-      
+     
+    def check_wishlist_see_all(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if not _actual_url.startswith(self._webd_wrap._baseURL + '/collection/list/wishlist/'):
+            raise AssertionError("Not on wishlist see all page.") 
     ################################################################################################################
     #####################################TOP MENU LINKS#############################################################
     ################################################################################################################

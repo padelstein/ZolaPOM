@@ -140,7 +140,7 @@ Side USA Today Bestsellers
 
 Zola Copyright
     Home.Click Copyright
-    WebDriverWrapper.Check Url    https://zolaqc.com/terms#
+    WebDriverWrapper.Check Url    https://zolabooks.com/terms#
 
 Wishlist Not Signed In
     Home.Click Wishlist

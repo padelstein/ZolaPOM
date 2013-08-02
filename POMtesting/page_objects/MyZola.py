@@ -191,10 +191,20 @@ class MyZola:
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a/div/span[2]").click()
         #self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div[2]/a/div/span[2]').click()
    
+    def check_followers_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/profile/followers/david-tennant':
+            raise AssertionError("Not on followers page.")
         
     def click_following_tab(self):
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a[2]/div/span[2]").click()
    
+    def check_following_page(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/profile/following/david-tennant':
+            raise AssertionError("Not on following page.")
     
     def click_collection_tab(self):
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/a[3]/span[2]").click()
@@ -209,6 +219,12 @@ class MyZola:
         
     def click_edit_profile(self):
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/section/ul/li/a").click()
+    
+    def check_edit_profile(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/profile/edit':
+            raise AssertionError("Not on edit profile page.")
         
     def click_billing_info(self):
         self._webd_wrap._driver.find_element_by_id("page").find_element_by_xpath("div/div[2]/section/ul/li[2]/a").click()
@@ -221,13 +237,31 @@ class MyZola:
         
     def click_messages_tab(self):
         self._webd_wrap._driver.find_element_by_class_name("list").find_element_by_xpath("li[2]/a").click()
-        
+    
+    def check_messages_tab(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/profile/david-tennant/messages':
+            raise AssertionError("Not on messages page.")
+            
     def click_starred_tab(self):
         self._webd_wrap._driver.find_element_by_class_name("list").find_element_by_xpath("li[3]/a").click()
-        
+    
+    def check_starred_tab(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/profile/david-tennant/starred':
+            raise AssertionError("Not on starred page.")
+          
     def sort_just_me(self):
         self._webd_wrap._driver.find_element_by_id("dk_container_category").find_element_by_xpath("a").click()
         self._webd_wrap._driver.find_element_by_class_name("dk_options_inner").find_element_by_xpath("li[2]/a").click()
+    
+    def check_sort_just_me(self):
+        ''' raises AssertionError if page is incorrect '''
+        _actual_url = self._webd_wrap._driver.current_url
+        if _actual_url != self._webd_wrap._baseURL + '/profile/david-tennant/filter-me':
+            raise AssertionError("Not on just me feed.")
         
     def sort_everything(self):
         self._webd_wrap._driver.find_element_by_id("dk_container_category").find_element_by_xpath("a").click()
