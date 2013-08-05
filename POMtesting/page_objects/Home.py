@@ -23,7 +23,7 @@ class Home:
     def confirm_page(self):
         ''' raises assertion error if page is incorrect '''
         
-        # checks for the feed webelement to confirm this is the hompage
+        # checks for the feed webelement to confirm this is the homepage
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.ID, 'feed')), 'feed not present')
         
         _title = self._webd_wrap._driver.title
