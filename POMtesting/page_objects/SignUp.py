@@ -67,5 +67,9 @@ class SignUp:
 
     def register_submit(self):
         
-        self._webd_wrap._driver.find_element_by_name("submit").click()
-        
+        self._webd_wrap._driver.find_element_by_name('submit').click()
+        #self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/section/div/form/div[2]/div/p/input').click()
+        #self._webd_wrap._driver.find_element_by_id('signup_form').find_element_by_name("submit").click()
+        #/html/body/div[3]/div/section/div/form/div[2]/div/p/input #you
+        #/html/body/div[2]/div/form/section[2]/div/p[2]/input #you-mid flow signup page
+        #/html/body/div[2]/div/form/section[2]/div/p[2]/input #qc

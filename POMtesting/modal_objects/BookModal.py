@@ -76,11 +76,13 @@ class BookModal:
         ''' once add to list dialog is displayed, chooses the wishlist '''
         self._confirm_modal()
         
-        _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
-        #/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a
-        _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
-        _hov.perform()
-        self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
+        self._webd_wrap._driver.find_element_by_link_text('My Wishlist').click()
+        
+#         _element = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a')
+#         #/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/div/div/div/section/ul/li/a
+#         _hov = ActionChains(self._webd_wrap._driver).move_to_element(_element)
+#         _hov.perform()
+#         self._webd_wrap._driver.execute_script('(arguments[0]).click()', _element)
 
     def click_view_your_list(self):
         ''' clicks the view your list option after adding the book the the list '''
@@ -92,20 +94,13 @@ class BookModal:
         ''' clicks the add to list button '''
         self._confirm_modal()
         
-        add_to_list = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/a')
-        hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list)
-        hover.perform()
-        self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list)
+        self._webd_wrap._driver.find_element_by_link_text("ADD TO LIST").click()
+#         add_to_list = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/div/a')
+#         hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list)
+#         hover.perform()
+#         self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list)
     
-    def click_add_to_list_nsi(self):
-        ''' clicks the add to list button '''
-        self._confirm_modal()
-        
-        add_to_list_nsi = self._webd_wrap._driver.find_element_by_xpath('/html/body/div[3]/div/div/div/div/div/div/section[2]/div/div/ul/li[2]/a')
-        
-        hover = ActionChains(self._webd_wrap._driver).move_to_element(add_to_list_nsi)
-        hover.perform()
-        self._webd_wrap._driver.execute_script('(arguments[0]).click()', add_to_list_nsi)
+
     
     ########################################################################
         
