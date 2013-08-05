@@ -36,14 +36,7 @@ class FindFriends:
             raise AssertionError("Not on the People Finder page.")
         
     def click_skip_this(self):
-        #self.confirm_page()
-        #time.sleep(5)
         self._webd_wrap.wait.until(EC.visibility_of_element_located((By.CSS_SELECTOR, "footer[class='pad-box-40px t-center']")))
-        #self._webd_wrap.wait.until(EC.visibility_of_element_located((By.NAME, 'submit')))
-        #self._webd_wrap.wait.until(EC.visibility_of_element_located((By.XPATH, '/html/body/div[2]/div/div/footer/form/a')))
-        #self._webd_wrap._driver.find_element_by_xpath("/html/body/div[2]/div/div/footer/form/a").click()
-        self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div[1]/div/footer/form/input').click()
-        #/html/body/div[2]/div/div/footer/form/a
-        #self._webd_wrap._driver.find_element_by_link_text('skip this').click()
-
         
+        self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div[1]/div/footer/form/input').click()
+
