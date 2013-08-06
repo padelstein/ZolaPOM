@@ -39,3 +39,4 @@ class FindFriends:
         self._webd_wrap.wait.until(EC.presence_of_element_located((By.CSS_SELECTOR, "footer[class='pad-box-40px t-center']")), 'footer on find friends')
         
         self._webd_wrap._driver.find_element_by_id('page').find_element_by_xpath('div[1]/div/footer/form/input').click()
+

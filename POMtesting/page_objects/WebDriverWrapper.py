@@ -25,6 +25,7 @@ class WebDriverWrapper:
         self._baseURL = 'https://zolaqc.com'
 
 
+
     def open_firefox(self):
         self._driver = webdriver.Firefox()
         self._driver.maximize_window()
