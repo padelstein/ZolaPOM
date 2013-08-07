@@ -1,4 +1,4 @@
-from page_objects.modals.base_modal import base_modal
+from UnitTesting.page_objects.modals.base_modal import base_modal
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -30,8 +30,6 @@ class sign_in_modal(base_modal):
         _sign_up_button = self._webd_wrap._driver.find_element_by_class_name('fancybox-inner').find_element_by_xpath('div/section[2]/div/a')
         self._webd_wrap._driver.execute_script("(arguments[0]).click()", _sign_up_button)
         
-        # confirms modal is gone
-        #self._webd_wrap.wait.until(EC.invisibility_of_element_located((By.CLASS_NAME, 'fancybox-inner')))
         
     def sign_in(self, _username='davidtennant@zolabooks.com', _password='kingkong'): 
         self._confirm_modal()

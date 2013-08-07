@@ -64,6 +64,6 @@ Not Signed In
     PledgeModal.Initial Pledge
     SignInModal.Sign In    ${EMAIL}    password
     PledgeModal.Pledge Confirm
-    ACPList.Confirm Bookseller Page
+    Booksellers.Confirm Page
     PledgeModal.Initial Unpledge
     PledgeModal.Unpledge Confirm

@@ -27,6 +27,3 @@ class NewReleases:
         
         if not _url.startswith(self._webd_wrap._baseURL + '/new-releases') or _title != 'Zola Books | New Releases | Browse' or _header != 'NEW RELEASES':
             raise AssertionError("Not on the bestsellers page.")
-            
-    ########################################################################
-    ########################################################################
