@@ -65,9 +65,6 @@ class SignUp:
         _first_name = self._first_name_list[ random.randint(0, 15) ]
         _last_name = self._last_name_list[ random.randint(0, 15) ]
         
-#         self._webd_wrap._driver.find_element_by_id("first_name").send_keys('Lin')
-#         self._webd_wrap._driver.find_element_by_id("last_name").send_keys('Robinson')
-        
         self._webd_wrap._driver.find_element_by_id("first_name").send_keys(_first_name)
         self._webd_wrap._driver.find_element_by_id("last_name").send_keys(_last_name)
         
